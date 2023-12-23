@@ -2,3 +2,48 @@
   margin: 0;
   padding: 0;
 }
+
+.product-count-heading{
+  width: 100vw;
+  text-align: center;
+  background-color: aqua;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* NAVBAR */
+.navbar{
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  background-color: antiquewhite;
+}
+.navbar-logo-link{
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+.navbarlogo{
+  width: 200px;
+}
+.navbar-items{
+  font-size: 25px;
+  display: flex;
+  margin-right: 50px;
+  align-items: center;
+}
+.navbar-items a{
+  margin: 0 10px;
+  padding: 5px 10px;
+  color: black;
+  text-decoration: none;
+}
+.navbar-bottom-space{
+  margin-top: 70px;
+}

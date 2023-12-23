@@ -44,14 +44,11 @@
     padding: 20px;
 }
 .slider-p-image{
-    width: 20vw;
+    width: 15vw;
     height: 20vw;
     min-width: 100px;
     min-height: 100px;
     object-fit: contain;
-}
-.slider-p-image-main:hover{
-    
 }
 
 
@@ -84,8 +81,14 @@
 }
 .product-box-text{
 }
-.product-box-title{}
-.product-box-price{}
+.product-box-title{
+    font-size: 16px;
+    font-weight: 550;
+}
+.product-box-price{
+    font-size: 18px;
+    font-weight: 600;
+}
 
 
 
@@ -120,6 +123,9 @@
     .product-box-image-main{
         height: 47vw;
     }
+    .product-box-title{
+        font-size: 14px !important;
+    }
   }
 
 /* => MOBILE */
@@ -129,5 +135,11 @@
     }
     .product-box-image-main{
         height: 70vw;
+    }
+    .product-box-title{
+        font-size: 12px !important;
+    }
+    .product-box-price{
+        font-size: 15px !important;
     }
   }
