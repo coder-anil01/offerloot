@@ -58,7 +58,7 @@ const CategorySlider = () => {
 
     useEffect(()=>{
         getCategories();
-    })
+    },[])
   return (
     <>
       <div className="home-page-slick">
