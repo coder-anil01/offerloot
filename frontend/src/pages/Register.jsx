@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { FaLock, FaUser,FaPhoneAlt, FaShippingFast } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { GiBrain } from "react-icons/gi";
 import { toast } from 'react-toastify';
 import { GiPostOffice } from "react-icons/gi";
+import { useAuth } from '../context/auth';
 
 
 const Register = () => {
 
+    const navigate = useNavigate();
+    const [auth, setAuth] = useAuth();
     const[ name, setName ] = useState("");
     const[ email, setEmail ] = useState("");
     const[ password, setPassword ] = useState("");
@@ -23,6 +26,9 @@ const Register = () => {
         try {
             const {data} = await axios.post('http://localhost:8000/api/v1/auth/register', {name, email, password, phone, answer,address, pin})
             if(data.success){
+                setAuth({ ...auth, user: data?.user, token: data?.token, })
+                localStorage.setItem('auth', JSON.stringify(data))
+                navigate('/')
                 toast.success(data.message)
             }else{
                 toast.warn(data.message)

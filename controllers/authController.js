@@ -48,10 +48,14 @@ export const registerController = async (req, res) => {
       answer,
       pin
     }).save();
-    res.status(201).send({
+
+    //***=> Token
+    const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET );
+    res.status(200).send({
       success: true,
-      message: "User Register Successfully",
+      message: "Register Successfully",
       user,
+      token,
     });
   } catch (error) {
     console.log(error);
