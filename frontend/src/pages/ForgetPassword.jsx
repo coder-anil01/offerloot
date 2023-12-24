@@ -36,11 +36,12 @@ const ForgetPassword = () => {
         <h1 className='login-form-heading'>Forget Password</h1>
         <div className='login-form-items'>
             <div className='login-form-icon'><MdEmail/></div>
-            <input type="text"
+            <input type="email"
             value={email}
             onChange={(e)=> setEmail(e.target.value)}
             placeholder='Enter Your Email'
             className='login-form-input'
+            required
             />
         </div>
         
@@ -51,6 +52,7 @@ const ForgetPassword = () => {
             onChange={(e)=> setAnswer(e.target.value)}
             placeholder='Enter Your Password Hint'
             className='login-form-input'
+            required
             />
         </div>
 
@@ -61,6 +63,7 @@ const ForgetPassword = () => {
             onChange={(e)=> setPassword(e.target.value)}
             placeholder='Enter New Password'
             className='login-form-input'
+            required
             />
         </div>
 

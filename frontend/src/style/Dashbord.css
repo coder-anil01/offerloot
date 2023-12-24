@@ -1,0 +1,46 @@
+/* USER PROFILE */
+.dashbord{
+    display: grid;
+    grid-template-columns: 200px auto;
+}
+.dashbord-menu{}
+.dashbord-content{
+    min-height: 90vh;
+    background-color: #37373718;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(135deg, #f5a9fe, #b0f996);
+}
+
+
+/* MENU */
+.menu{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    padding: 10px 20px 10px 20px;
+}
+.menu-button{
+    display: flex;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 20px;
+}
+.menu-button:hover{
+    background-color: #373737;
+}
+.menu-icon{
+    margin-right: 15px;
+}
+
+
+/* => MOBILE */
+@media only screen and (max-width: 600px) {
+    .dashbord{
+        display: flex;
+        flex-direction: column;
+    }
+}

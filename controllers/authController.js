@@ -191,9 +191,9 @@ export const getAllAdminController = async(req, res)=>{
 export const updateProfileController = async(req, res) => {
   try {
     const {id} = req.params;
-    const {name, email, password, phone, address, answer} = req.body;
+    const {name, email, phone, address, answer, newAnswer} = req.body;
 
-    const existingUser = await userModel.findOne({ _id: id, password: password })
+    const existingUser = await userModel.findOne({ _id: id, answer })
     if(!existingUser){
       return res.status(200).send({message: "User Does Not Exist"})
     }
@@ -203,13 +203,13 @@ export const updateProfileController = async(req, res) => {
       email: email || user.email,
       phone : phone || user.phone,
       address : address || user.address,
-      answer: answer || user.answer,
+      answer: newAnswer || user.answer,
     },{new: true})
 
     //***=> Token
     const token = await JWT.sign({ _id: id }, process.env.JWT_SECRET );
 
-    res.status(200).send({
+    res.status(201).send({
       success: true,
       message:"Profile Updated Successfully",
       user,

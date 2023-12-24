@@ -37,11 +37,12 @@ const Login = () => {
         <h1 className='login-form-heading'>Login Page</h1>
         <div className='login-form-items'>
             <div className='login-form-icon'><MdEmail/></div>
-            <input type="text"
+            <input type="email"
             value={email}
             onChange={(e)=> setEmail(e.target.value)}
             placeholder='Enter Your Email'
             className='login-form-input'
+            required
             />
         </div>
         
@@ -52,6 +53,7 @@ const Login = () => {
             onChange={(e)=> setPassword(e.target.value)}
             placeholder='Enter Your Password'
             className='login-form-input'
+            required
             />
         </div>
         <Link to="/forgot-password" className='login-form-link'>Forgot Password ?</Link>

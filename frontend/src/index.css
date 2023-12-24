@@ -47,3 +47,26 @@
 .navbar-bottom-space{
   margin-top: 60px;
 }
+
+/* => MOBILE */
+@media only screen and (max-width: 600px) {
+  .navbar{
+    height: 40px;
+  }
+  .navbar-logo-link{
+    margin-left: 10px;
+  }
+  .navbarlogo{
+    width: 110px;
+  }
+  .navbar-items{
+    margin-right: 5px;
+  }
+  .navbar-items a{
+    margin: 0 5px;
+    padding: 5px 10px;
+  }
+  .navbar-bottom-space{
+    margin-top: 40px;
+  }
+}
