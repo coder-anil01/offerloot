@@ -5,7 +5,7 @@ export const createwishlist = async (req, res) => {
         const { user, product} = req.body;
         const exist = await wishListModel.findOne({"product": product})
         if(exist){
-            return res.status(200).send({message: "Product Exist In Wishlist"})
+            return res.status(200).send({ success: false, message: "Product Exist In Wishlist"})
         }
         const wishlist = await new wishListModel({user, product}).save();
         res.status(201).send({

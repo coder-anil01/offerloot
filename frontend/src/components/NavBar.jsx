@@ -15,8 +15,8 @@ const NavBar = () => {
     <div className='navbar'>
       <Link to="/" className='navbar-logo-link'><img className='navbarlogo' src={Navlogo} alt="" /></Link>
       <div className='navbar-items'>
-        <NavLink><IoMdCart/></NavLink>
-        <NavLink><FaRegHeart/></NavLink>
+        <NavLink to='/cart'><IoMdCart/></NavLink>
+        <NavLink to='/wishlist'><FaRegHeart/></NavLink>
         
         <NavLink to={`/${auth?.user?.role === 8987 ? "admin" : "dashbord"}`}><FaUser/></NavLink>
       </div>

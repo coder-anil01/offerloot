@@ -44,6 +44,7 @@ const UserProfile = () => {
     
       <form className='login-form' onSubmit={handleRegister}>
       <h1 className='login-form-heading'>Update Account</h1>
+      <label htmlFor="html">Name:-</label>
         <div className='login-form-items'>
             <div className='login-form-icon'><FaUser/></div>
             <input type="text"
@@ -53,6 +54,7 @@ const UserProfile = () => {
             className='login-form-input'
             />
         </div>
+        <label htmlFor="html">Email:-</label>
         <div className='login-form-items'>
             <div className='login-form-icon'><MdEmail/></div>
             <input type="email"
@@ -62,7 +64,7 @@ const UserProfile = () => {
             className='login-form-input'
             />
         </div>
-
+        <label htmlFor="html">Phone:-</label>
         <div className='login-form-items'>
             <div className='login-form-icon'><FaPhoneAlt/></div>
             <input type="Number"
@@ -72,7 +74,7 @@ const UserProfile = () => {
             className='login-form-input'
             />
         </div>
-
+        <label htmlFor="html">Password Hint:-</label>
         <div className='login-form-items'>
             <div className='login-form-icon'><GiBrain/></div>
             <input type="text"
@@ -82,7 +84,7 @@ const UserProfile = () => {
             className='login-form-input'
             />
         </div>
-        
+        <label htmlFor="html">Delivery Address:-</label>
         <div className='login-form-items'>
             <div className='login-form-icon'><FaShippingFast/></div>
             <input type="text"
@@ -92,7 +94,7 @@ const UserProfile = () => {
             className='login-form-input'
             />
         </div>
-        
+        <label htmlFor="html">Address Pin Code:-</label>
         <div className='login-form-items'>
             <div className='login-form-icon'><GiPostOffice/></div>
             <input type="Number"

@@ -79,9 +79,21 @@
 .product-box-image:hover{
     scale: 1.1;
 }
+.product-card-icon{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+.product-icon-cart,
+.product-icon-wishlist{
+    cursor: pointer;
+    padding: 10px;
+}
+
 .product-box-text{
 }
 .product-box-title{
+    opacity: 0.8;
     font-size: 16px;
     font-weight: 550;
 }

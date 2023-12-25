@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
+import { Flip, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HomePage from './pages/HomePage';
 import NavBar from './components/NavBar';
@@ -14,17 +14,22 @@ import LogOut from "./pages/user/LogOut";
 import Wishlist from "./pages/user/Wishlist";
 import UserOrder from "./pages/user/UserOrder";
 import UserCart from "./pages/user/UserCart";
+import NavCartPage from "./pages/NavCartPage";
 
 function App() {
   return (
     < >
     <Router>
-    <ToastContainer />
+    <ToastContainer
+    autoClose={3000}
+    transition={Flip}
+    />
     <NavBar/>
       <Routes> 
         <Route path='/' element={<HomePage/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='/cart' element={<NavCartPage/>}/>
         <Route path='/forgot-password' element={<ForgetPassword/>}/>
         <Route path='/category/:id' element={<CategoryProduct/>}/>
         <Route path='/product/:id' element={<ProductDetails/>}/>
