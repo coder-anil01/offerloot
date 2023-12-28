@@ -57,3 +57,20 @@ export const deleteCart = async(req, res) => {
         })
     }
 }
+
+export const deleteManyCart = async(req, res) => {
+    try {
+        const {id} = req.params;
+        await cartModel.deleteMany({user: id});
+        res.status(200).send({
+            success: true,
+            message: "All Cart deleted",
+        })
+    } catch (error) {
+        res.status(404).send({
+            success: false,
+            message: "Internal server error",
+            error,
+        })
+    }
+}

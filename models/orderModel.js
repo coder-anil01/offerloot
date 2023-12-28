@@ -2,18 +2,19 @@ import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema(
     {
-        products: {
+        product: {
               type: mongoose.Schema.Types.ObjectId,
               ref: 'products',
+              require: true,
             },
         price:{
             type: Number,
-            // require: true,
+            require: true,
         },
         user:{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'users',
-            // require: true,
+            require: true,
         },
         status:{
             type:String,

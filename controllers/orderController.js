@@ -1,11 +1,15 @@
+import cartModel from "../models/cartModel.js";
 import orderModel from "../models/orderModel.js";
 
 //*************  CREATE   *************//
 export const createOrder = async(req, res) => {
-    const {cart, price, id} = req.body;
     try {
+        const {cart, id} = req.body;
+        if(cart < 1 || !id){
+            return res.status(200).send({message: "Card Is Empty"})
+        }
         for (let i = 0; i < cart.length; i++) {
-            await new orderModel({products: cart[i], price: cart[i]?.price, user: id }).save();
+            await new orderModel({product: cart[i]?.product._id, price: cart[i]?.product.price, user: id }).save();
         }
         res.status(201).send({
             success: true,
