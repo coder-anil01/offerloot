@@ -2,7 +2,7 @@
 .home-page-slick{
     display: flex;
     justify-content: center;
-    padding: 0 5vw;
+    padding: 20px 5vw;
 }
 .homepage-category{
     width: 80vw;

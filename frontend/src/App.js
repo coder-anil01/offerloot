@@ -15,13 +15,14 @@ import Wishlist from "./pages/user/Wishlist";
 import UserOrder from "./pages/user/UserOrder";
 import UserCart from "./pages/user/UserCart";
 import NavCartPage from "./pages/NavCartPage";
+import PaymentPage from "./pages/user/PaymentPage";
 
 function App() {
   return (
     < >
     <Router>
     <ToastContainer
-    autoClose={3000}
+    autoClose={2000}
     transition={Flip}
     />
     <NavBar/>
@@ -41,6 +42,7 @@ function App() {
         <Route path="wishlist" element={<Wishlist/>}/>
         <Route path="order" element={<UserOrder/>}/>
         <Route path="cart" element={<UserCart/>}/>
+        <Route path="payment" element={<PaymentPage/>}/>
       </Route>
 
       </Routes>

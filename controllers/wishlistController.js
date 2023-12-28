@@ -3,9 +3,9 @@ import wishListModel from "../models/wishListModel.js";
 export const createwishlist = async (req, res) => {
     try {
         const { user, product} = req.body;
-        const exist = await wishListModel.findOne({"product": product})
-        if(exist){
-            return res.status(200).send({ success: false, message: "Product Exist In Wishlist"})
+        const exist = await wishListModel.find({product})
+        if(exist.length > 0){
+            return res.status(200).send({ exist, message:"Product exist In Wishlist"})
         }
         const wishlist = await new wishListModel({user, product}).save();
         res.status(201).send({
@@ -42,7 +42,7 @@ export const userwishlist = async (req, res) => {
 export const userwishlistRemove = async (req, res) => {
     try {
         const {id} = req.params;
-        await wishListModel.findByIdAndDelete(id)
+        await wishListModel.findByIdAndDelete(id);
         res.status(200).send({
             success: true,
             message: "Remove Product from wishlist",

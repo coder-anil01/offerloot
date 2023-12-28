@@ -7,6 +7,7 @@ import categoryRoute from "./routes/categoryRoute.js";
 import productRoutes from "./routes/productRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import wishlistRoutes from "./routes/wishlistRoutes.js";
+import cartRoute from "./routes/cartRoute.js";
 import cors from "cors"
 
 //config
@@ -27,6 +28,7 @@ app.use('/api/v1/category', categoryRoute )
 app.use('/api/v1/product', productRoutes )
 app.use('/api/v1/order', orderRoutes )
 app.use('/api/v1/wishlist', wishlistRoutes )
+app.use('/api/v1/cart', cartRoute )
 
 //rest api
 app.get('/', (req, res)=> {

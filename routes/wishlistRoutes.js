@@ -1,5 +1,5 @@
 import express from "express";
-import { createwishlist, userwishlist, userwishlistRemove } from "../controllers/wishListController.js";
+import { createwishlist, userwishlist, userwishlistRemove } from "../controllers/wishlistController.js";
 
 const router = express.Router();
 

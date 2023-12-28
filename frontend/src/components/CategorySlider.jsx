@@ -10,10 +10,12 @@ const CategorySlider = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 300,
+        speed: 1000,
         slidesToShow: 7,
         slidesToScroll: 2,
         initialSlide: 0,
+        autoplay: true,
+        autoplaySpeed: 1000,
         responsive: [
           {
             breakpoint: 1024,

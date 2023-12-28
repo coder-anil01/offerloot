@@ -49,7 +49,6 @@ const TrandingProduct = () => {
         try {
             const {data} = await axios.get(`http://localhost:8000/api/v1/product/category/${id1}`)
             if(data.success){
-            console.log(data)
             setProduct1(data.product)
             }
         } catch (error) {
@@ -61,7 +60,6 @@ const TrandingProduct = () => {
         try {
             const {data} = await axios.get(`http://localhost:8000/api/v1/product/category/${id1}`)
             if(data.success){
-            console.log(data)
             setProduct2(data.product)
             }
         } catch (error) {
