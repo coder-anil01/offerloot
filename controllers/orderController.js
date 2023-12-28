@@ -50,7 +50,7 @@ export const userAllOrders = async(req, res)=>{
         if(!id){
             return res.status(404).send("plese enter user id")
         }
-        const orders = await orderModel.find({user: id}).populate("products").sort({ createdAt: -1});
+        const orders = await orderModel.find({user: id}).populate("product").sort({ createdAt: -1});
         res.status(200).send({
             success: true,
             message: "User All Order",
@@ -60,7 +60,7 @@ export const userAllOrders = async(req, res)=>{
     } catch (error) {
         res.status(500).send({
             success: false,
-            message: "Error While Registation",
+            message: "Internal Server Error",
             error,
           });
     }
@@ -80,7 +80,7 @@ export const updateStaus = async (req, res) => {
     } catch (error) {
         res.status(500).send({
             success: false,
-            message: "Error While Registation",
+            message: "Internal Server Error",
             error,
           });
     }

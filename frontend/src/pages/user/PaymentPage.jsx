@@ -73,7 +73,7 @@ const PaymentPage = () => {
             <div><FaPhoneAlt/> <strong>Phone:-</strong> {auth?.user?.phone}</div>
             <div><FaHome/> <strong>Address:-</strong> {auth?.user?.address}</div>
           </div>
-          <Link to='/dashbord' className='nav-cart-address-change'>Change</Link>
+          <Link to='/dashbord/profile' className='nav-cart-address-change'>Change</Link>
         </div>
         <div className='nav-cart-product'>
           <h2>Payment Method</h2>

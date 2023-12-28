@@ -59,13 +59,13 @@ const NavCartPage = () => {
             <div><FaPhoneAlt/> <strong>Phone:-</strong> {auth?.user?.phone}</div>
             <div><FaHome/> <strong>Address:-</strong> {auth?.user?.address}</div>
           </div>
-          <Link to='/dashbord' className='nav-cart-address-change'>Change</Link>
+          <Link to='/dashbord/profile' className='nav-cart-address-change'>Change</Link>
         </div>
         <div className='nav-cart-product'>
           {products?.map(item => (
             <div className='nav-cart-product-card' key={item.product._id}>
               <div className='nav-cart-product-card-left'>
-                <Link to={`/product/${item.product._id}`}><img className='nav-cart-product-image' src={Cartimage} alt="" /></Link>
+                <Link to={`/product/${item.product._id}`}><img className='nav-cart-product-image' src={item.product.image} alt="" /></Link>
                 <div className='nav-cart-product-text'>
                   <div className='nav-cart-product-title'>{item.product.title.slice(0,20)}...</div>
                   <div className='nav-cart-product-price'>₹ {item.product.price}/-</div>

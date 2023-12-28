@@ -82,7 +82,7 @@ const TrandingProduct = () => {
         <Slider {...settings}>
             {product1?.map((p) => (
                 <div key={p._id}>
-                    <Link><img className='slider-p-image' src={p.image} alt={p.title.slice(0, 10)} /></Link>
+                    <Link to={`/product/${p._id}`} ><img className='slider-p-image' src={p.image} alt={p.title.slice(0, 10)} /></Link>
                     <div>{p.title.slice(0, 10)}</div>
                     <div>{p.price}</div>
                 </div>
@@ -100,7 +100,7 @@ const TrandingProduct = () => {
         <Slider {...settings}>
             {product2?.map((p) => (
                 <div key={p._id}>
-                    <Link><img className='slider-p-image' src={p.image} alt={p.title.slice(0, 10)} /></Link>
+                    <Link to={`/product/${p._id}`}><img className='slider-p-image' src={p.image} alt={p.title.slice(0, 10)} /></Link>
                     <div>{p.title.slice(0, 10)}</div>
                     <div>{p.price}</div>
                 </div>

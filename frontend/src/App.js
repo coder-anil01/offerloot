@@ -16,6 +16,7 @@ import UserOrder from "./pages/user/UserOrder";
 import UserCart from "./pages/user/UserCart";
 import NavCartPage from "./pages/NavCartPage";
 import PaymentPage from "./pages/user/PaymentPage";
+import UserDashbord from "./pages/user/UserDashbord";
 
 function App() {
   return (
@@ -37,7 +38,8 @@ function App() {
         
 {/* USER */}
         <Route path="/dashbord" element={<UserRoute/>}>
-        <Route path="" element={<UserProfile/>}/>
+        <Route path="" element={<UserDashbord/>}/>
+        <Route path="profile" element={<UserProfile/>}/>
         <Route path="logout" element={<LogOut/>}/>
         <Route path="wishlist" element={<Wishlist/>}/>
         <Route path="order" element={<UserOrder/>}/>
