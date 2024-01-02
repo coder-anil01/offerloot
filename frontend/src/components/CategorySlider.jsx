@@ -10,7 +10,7 @@ const CategorySlider = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 1000,
+        speed: 4000,
         slidesToShow: 7,
         slidesToScroll: 2,
         initialSlide: 0,
@@ -21,7 +21,7 @@ const CategorySlider = () => {
             breakpoint: 1024,
             settings: {
               slidesToShow: 5,
-              slidesToScroll: 1,
+              slidesToScroll: 2,
             },
           },
           {

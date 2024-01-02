@@ -17,6 +17,7 @@ import UserCart from "./pages/user/UserCart";
 import NavCartPage from "./pages/NavCartPage";
 import PaymentPage from "./pages/user/PaymentPage";
 import UserDashbord from "./pages/user/UserDashbord";
+import AdminRoutes from "./routes/AdminRoutes";
 
 function App() {
   return (
@@ -45,6 +46,10 @@ function App() {
         <Route path="order" element={<UserOrder/>}/>
         <Route path="cart" element={<UserCart/>}/>
         <Route path="payment" element={<PaymentPage/>}/>
+      </Route>
+{/* ADMIN */}
+        <Route path="/admin" element={<AdminRoutes/>}>
+
       </Route>
 
       </Routes>

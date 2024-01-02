@@ -19,6 +19,10 @@ const orderSchema = new mongoose.Schema(
         status:{
             type:String,
             default: "Processing",
+        },
+        payment:{
+            type: String,
+            default: "Cash On Delivery",
         }
         
     },{timestamps: true}

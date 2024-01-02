@@ -81,7 +81,12 @@ const NavCartPage = () => {
           <h2>Price Details</h2>
           <h3>Total Price:- ₹ {totalPrice()}/-</h3>
         </div>
-        <Link to="/dashbord/payment" className='nav-cart-place-order'>Place Order</Link>
+        {products.length > 0 ? <>
+          <Link to="/dashbord/payment" className='nav-cart-place-order'>Place Order</Link>
+          </> : <>
+          <Link to="/" className='nav-cart-place-order'>Continue Shopping</Link>
+          </>}
+        
       </div>
     </div>
   )

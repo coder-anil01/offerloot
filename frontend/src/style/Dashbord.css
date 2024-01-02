@@ -60,3 +60,23 @@
     background-color: #ff0000ae;
     
 }
+
+/* ORDER */
+.dashbord-order-cancle-select{
+    padding: 10px 15px;
+    width: 250px;
+    font-size: 15px;
+}
+.order-product-status{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.order-product-status-icon-cancle{
+    color: red;
+    margin-left: 5px;
+}
+.order-product-status-icon{
+    color: green;
+    margin: 0 5px;
+}

@@ -18,7 +18,11 @@ export const requireSignIn = async (req, res, next) => {
 //****** =>  Protected Routes ADMIN
 export const isAdmin = async (req, res, next) => {
   try {
-    const user = await userModel.findById(req.user._id);
+    const {id} =req.body;
+    const user = await userModel.findById(id);
+    if(!user){
+      return res.status(404).send({success: false, message: "User Not Found"})
+    }
     if (user.role !== 8987) {
       return res.status(200).send({
         success: false,
