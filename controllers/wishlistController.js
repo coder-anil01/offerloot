@@ -3,7 +3,7 @@ import wishListModel from "../models/wishListModel.js";
 export const createwishlist = async (req, res) => {
     try {
         const { user, product} = req.body;
-        const exist = await wishListModel.find({product})
+        const exist = await wishListModel.find({product, user})
         if(exist.length > 0){
             return res.status(200).send({ exist, message:"Product exist In Wishlist"})
         }

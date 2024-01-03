@@ -135,7 +135,7 @@ export const forgotPasswordController = async (req, res)=> {
       message: "Password Forgot Successfully"
     })
   } catch (error) {
-    res.status(404).send({
+    res.status(500).send({
       success: false,
       message: "Internal Server Error"
     })
@@ -157,7 +157,7 @@ export const getAllUserController = async(req, res)=>{
       allUsers,
     })
   } catch (error) {
-    res.status(404).send({
+    res.status(500).send({
       success: false,
       message: "Internal Server Error",
       error,
@@ -174,12 +174,12 @@ export const getAllAdminController = async(req, res)=>{
       return res.status(404).send({message: "Don't have any account"})
     }
     res.status(200).send({
-      message: "Get All User",
+      message: "Get All Admin",
       countTotal: allAdmin.length,
       allAdmin,
     })
   } catch (error) {
-    res.status(404).send({
+    res.status(500).send({
       success: false,
       message: "Internal Server Error",
       error,
@@ -216,7 +216,24 @@ export const updateProfileController = async(req, res) => {
       token,
     })
   } catch (error) {
-    res.status(404).send({
+    res.status(500).send({
+      success: false,
+      message: "Internal Server Error",
+      error,
+    })
+  }
+}
+
+export const deleteAuthcontroller = async(req, res) => {
+  try {
+    const {id} = req.params;
+    await userModel.findByIdAndDelete(id);
+    res.status(200).send({
+      success: true,
+      message: "Auth Deleted Successfully",
+    })
+  } catch (error) {
+    res.status(500).send({
       success: false,
       message: "Internal Server Error",
       error,

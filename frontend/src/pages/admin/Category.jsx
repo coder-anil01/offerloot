@@ -1,10 +1,13 @@
 import React from 'react'
+import AdminMenu from './AdminMenu'
 
 const Category = () => {
   return (
-    <div>
-      Category
-Category
+    <div className='dashbord'>
+      <div className='dashbord-menu'><AdminMenu/></div>
+      <div className='dashbord-content'>
+        category
+      </div>
     </div>
   )
 }

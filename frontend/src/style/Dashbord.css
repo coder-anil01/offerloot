@@ -80,3 +80,57 @@
     color: green;
     margin: 0 5px;
 }
+
+/* ADMIN DASHBORD */
+.chart-m-box-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.chart-m-box{
+    background-color: white;
+    margin: 0 10px;
+    padding: 10px;
+    height: 120px;
+}
+.chart-m-box-heading{
+    font-size: 20px;
+    font-weight: 900;
+    opacity: 0.5;
+}
+.chart-m-box-price{
+    font-size: 20px;
+    font-weight: 600;
+}
+.chart-m-box-graph{
+    width: 100%;
+}
+
+/* all admin */
+.dashbord-menu-total{
+    width: 100%;
+    background-color: #37373773;
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    opacity: 0.7;
+}
+.dashbord-menu-box{
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+.dashbord-menu-box-card{
+    margin: 10px 0;
+    padding: 15px 10px;
+    background-color: #b0f996;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 100px;
+    grid-gap: 20px;
+    font-size: 16px;
+}
+.dashbord-menu-box-card-delete{
+    font-size: 25px;
+    cursor: pointer;
+    padding: 0 30px;
+}

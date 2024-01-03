@@ -3,7 +3,9 @@ import UserMenu from './UserMenu'
 import { useAuth } from '../../context/auth';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { FaRegHeart, FaCartPlus } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+
 
 const Wishlist = () => {
 
@@ -65,7 +67,7 @@ const Wishlist = () => {
             </div>
             <div className="product-box-text">
             <div className="product-card-icon">
-                <div className="product-icon-wishlist" onClick={() => {handleDelete(p._id)}}><FaRegHeart/></div>
+                <div className="product-icon-wishlist" onClick={() => {handleDelete(p._id)}}><MdDelete/></div>
                 <div className="product-icon-cart" onClick={() => {addToCart(p.product._id)}}><FaCartPlus/></div>
               </div>
               <div className="product-box-title">{p.product.title.slice(0, 10)}...</div>

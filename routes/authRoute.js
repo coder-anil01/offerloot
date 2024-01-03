@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  deleteAuthcontroller,
   forgotPasswordController,
   getAllAdminController,
   getAllUserController,
@@ -37,7 +38,7 @@ router.get("/get-alladmin", getAllAdminController);
 //****** Get All User *******/
 router.put("/updated/:id", updateProfileController);
 
-
+router.delete('/admin-delete/:id', deleteAuthcontroller);
 
 //user routes
 router.get('/user-auth', requireSignIn, (req, res)=>{

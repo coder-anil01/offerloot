@@ -18,6 +18,14 @@ import NavCartPage from "./pages/NavCartPage";
 import PaymentPage from "./pages/user/PaymentPage";
 import UserDashbord from "./pages/user/UserDashbord";
 import AdminRoutes from "./routes/AdminRoutes";
+import AdminDashbord from "./pages/admin/AdminDashbord";
+import AdminProfile from "./pages/admin/AdminProfile";
+import AllOrders from "./pages/admin/AllOrders";
+import AllUsers from "./pages/admin/AllUsers";
+import AllAdmin from "./pages/admin/AllAdmin";
+import Category from "./pages/admin/Category";
+import Product from "./pages/admin/Product";
+import Logout from "./pages/admin/Logout";
 
 function App() {
   return (
@@ -49,7 +57,14 @@ function App() {
       </Route>
 {/* ADMIN */}
         <Route path="/admin" element={<AdminRoutes/>}>
-
+        <Route path="" element={<AdminDashbord/>}/>
+        <Route path="profile" element={<AdminProfile/>}/>
+        <Route path="order" element={<AllOrders/>}/>
+        <Route path="users" element={<AllUsers/>}/>
+        <Route path="admins" element={<AllAdmin/>}/>
+        <Route path="categories" element={<Category/>}/>
+        <Route path="products" element={<Product/>}/>
+        <Route path="logout" element={<Logout/>}/>
       </Route>
 
       </Routes>

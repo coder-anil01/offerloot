@@ -12,7 +12,9 @@ const AdminRoutes = () => {
     const authCheck = async() => {
         try {
             const {data} = await axios.post('http://localhost:8000/api/v1/auth/admin-auth', {id: auth?.user?._id})
-            console.log(data)
+            if(data.success){
+              setAdmin(true)
+            }
         } catch (error) {
             console.log(error)
         }
@@ -23,7 +25,7 @@ const AdminRoutes = () => {
     },[auth])
   return (
     <>
-      {auth?.token ? <Outlet/> : <>
+      {admin ? <Outlet/> : <>
       <div className='user-routes'>
         <div className='user-routes-card'>
           <div className='user-routes-text'>I have an account</div>
