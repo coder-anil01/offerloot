@@ -8,6 +8,7 @@ import { FaRegHeart, FaCartPlus } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import { useAuth } from "../context/auth";
 import { Link } from "react-router-dom";
+import GoToTopButton from "../components/GoToTopButton";
 
 const HomePage = () => {
 
@@ -87,6 +88,7 @@ const HomePage = () => {
           </div>
         ))}
       </div>
+      <GoToTopButton/>
     </>
   );
 };

@@ -27,8 +27,8 @@ export const createOrder = async(req, res) => {
 //*************  GET   *************//
 export const getAllOrder = async(req, res) => {
     try {
-        const order = await orderModel.find({}).populate("products").populate("user").sort({ createdAt: -1});
-        res.status(201).send({
+        const order = await orderModel.find({}).populate("product").populate("user").sort({ createdAt: -1});
+        res.status(200).send({
             success: true,
             message: "All Orders",
             total: order.length,

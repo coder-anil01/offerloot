@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { Link, useNavigate } from "react-router-dom";
 import { FaHome, FaUser,FaPhoneAlt } from "react-icons/fa";
 import { useAuth } from '../../context/auth';
+import { FaTruckArrowRight } from "react-icons/fa6";
 
 
 const PaymentPage = () => {
@@ -85,7 +86,7 @@ const PaymentPage = () => {
           <h2>Price Details</h2>
           <h3>Total Price:- ₹ {totalPrice()}/-</h3>
         </div>
-        <Link to="/dashbord/payment" onClick={conformOrder} className='nav-cart-place-order'>Conform Order</Link>
+        <Link to="/dashbord/payment" onClick={conformOrder} className='nav-cart-place-order'>Conform Order <FaTruckArrowRight style={{fontSize:"22px"}}/></Link>
       </div>
     </div>
   )

@@ -3,11 +3,13 @@ import productModel from "../models/productModel.js";
 //*************  CREATE   *************//
 export const productCreateController = async (req, res) => {
     try {
-       const { title, description, image, category, price, countInStock, rating, numReviews, isFeatured } = req.body
-       if( !title || !description || !image || !category || !price || !countInStock || !rating ){
+       const { title, description,image, images, category, price, countInStock, rating, numReviews, isFeatured } = req.body
+       console.log(images)
+       console.log(image)
+       if( !title || !description || !image || !images || !category || !price || !countInStock || !rating ){
         return res.status(404).send({error: "Plese fill the required field"})
        }
-       const createProduct = await new productModel({title, description, image, category, price, countInStock, rating, numReviews, isFeatured}).save()
+       const createProduct = await new productModel({title, description, image, images, category, price, countInStock, rating, numReviews, isFeatured}).save()
        res.status(201).send({
         success: true,
         message: "Product Created Successfully",
@@ -72,8 +74,8 @@ export const getSingleProductController = async (req, res) => {
 export const updateProductController = async(req, res)=> {
     try {
         const{ id } = req.params
-        const {title, description, image, price, countInStock, rating, numReviews, isFeatured} = req.body
-        const updateProduct = await productModel.findByIdAndUpdate(id, {title, description, image, price, countInStock, rating, numReviews, isFeatured},
+        const {title, description, image, images, price, category, countInStock, rating, numReviews, isFeatured} = req.body
+        const updateProduct = await productModel.findByIdAndUpdate(id, {title, description, image, images, price, category, countInStock, rating, numReviews, isFeatured},
             {new: true})
         res.status(201).send({
             success: true,

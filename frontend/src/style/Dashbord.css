@@ -134,3 +134,233 @@
     cursor: pointer;
     padding: 0 30px;
 }
+
+
+/* PRODUCT */
+.dashbord-admin-product-contain{
+    min-height: 90vh;
+    background-image: linear-gradient(135deg, #f5a9fe, #b0f996);
+}
+.dashbord-form-heading{
+    background-color: #373737;
+    color: white;
+    opacity: 0.7;
+    text-align: center;
+    padding: 10px 0;
+}
+.dashbord-admin-product{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.form-control-select{
+    width: 345px;
+    height: 40px;
+    margin: 10px;
+}
+.form-control{
+    margin: 10px;
+    width: 300px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.form-submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0 30px 0;
+
+}
+.form-submit button{
+    padding: 10px 40px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    background-color: #0786f5;
+    color: white;
+    cursor: pointer;
+}
+.dashbord-admin-product-card{
+    margin: 10px;
+}
+.dashbord-admin-product-image{
+    margin-top: 10px;
+    width: 80px;
+}
+
+
+/* ADMIN PRODUCT */
+
+/* PRODUCT */
+
+.product-slider-contoner{
+    background-color: #d2d0d0;
+    margin: 50px 50px;
+    padding: 20px;
+}
+.slider-p-image{
+    width: 15vw;
+    height: 20vw;
+    min-width: 100px;
+    min-height: 100px;
+    object-fit: contain;
+}
+
+
+
+
+
+/* ALL PRODUCT */
+.dashbord-product-box{
+    display: grid;
+    grid-gap: 15px;
+    margin: 15px 5vw 0 5vw;
+}
+.dashbord-product-box-card{
+    box-shadow: 0 0 3px 4px #00000026;
+    text-decoration: none;
+    color: black;
+    padding: 10px 10px 20px 10px;
+}
+.dashbord-product-box-image-main{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+.dashbord-product-box-image{
+    width: 90%;
+    /* min-height: 70%; */
+    object-fit: contain;
+    transition: 0.3s;
+}
+.dashbord-product-box-image:hover{
+    scale: 1.1;
+}
+/* .dashbord-product-card-icon{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+} */
+/* .dashbord-product-icon-cart,
+.dashbord-product-icon-wishlist{
+    cursor: pointer;
+    padding: 10px;
+} */
+
+.dashbord-product-box-text{
+}
+.dashbord-product-box-title{
+    opacity: 0.8;
+    font-size: 14px;
+    font-weight: 550;
+}
+.dashbord-product-box-price{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+
+
+
+/* => VERY LARGE DISPLAY */
+@media screen and (min-width: 1281px) {
+    .dashbord-product-box{
+        grid-template-columns: repeat(5,1fr);
+    }
+    .dashbord-product-box-image-main{
+        height: 20vw;
+    }
+
+}
+
+  /* => DESTOPS */
+@media only screen and (max-width: 1280px) {
+    .dashbord-product-box{
+        grid-template-columns: repeat(4,1fr);
+    }
+    .dashbord-product-box-image-main{
+        height: 20vw;
+    }
+  }
+
+  /* => TABLETS  and PADS */
+@media only screen and (max-width: 920px) {
+    .dashbord-product-box{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .dashbord-product-box-image-main{
+        height: 25vw;
+    }
+    .dashbord-product-box-title{
+        font-size: 13px !important;
+    }
+  }
+
+/* => MOBILE */
+@media only screen and (max-width: 600px) {
+    .dashbord-product-box{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .dashbord-product-box-image-main{
+        height: 60vw;
+    }
+    .dashbord-product-box-title{
+        font-size: 12px !important;
+    }
+    .dashbord-product-box-price{
+        font-size: 15px !important;
+    }
+  }
+
+
+/* ALL ORDERS */
+.dashbord-admin-order-content{}
+.dashbord-admin-order-card{
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr;
+    background-color: #eafffb;
+    margin: 30px 0;
+    padding: 20px;
+    box-shadow: 0 0 6px 2px rgb(138, 138, 138);
+}
+.dashbord-admin-order-image-main{
+    align-items: center;
+    width: 250px;
+    height: 200px;
+}
+.dashbord-admin-order-image{
+    width: 250px;
+    height: 200px;
+    object-fit: contain;
+}
+.dashbord-admin-order-text div{
+    margin: 5px 0;
+}
+.dashbord-admin-order-text{
+    min-width: 290px;
+}
+.dashbord-admin-order-id{
+    color: #004ec4;
+    padding-bottom: 15px;
+}
+.dashbord-admin-order-title{
+    font-weight: 600;
+    opacity: 0.8;
+}
+.dashbord-admin-order-price{
+    font-size: 18px;
+    font-weight: 550;
+}
+.dashbord-admin-order-payment{}
+.dashbord-admin-order-date{}
+.dashbord-admin-order-status{}
+.dashbord-admin-order-status-select{
+    width: 150px;
+    height: 25px;
+    margin-left: 10px;
+}
+.dashbord-admin-order-user{}
+.dashbord-admin-order-user-name{}
+.dashbord-admin-order-user-phone{}
+.dashbord-admin-order-user-home{}
