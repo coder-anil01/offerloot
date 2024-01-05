@@ -17,7 +17,7 @@ const ForgetPassword = () => {
     const handleForgot = async(e) => {
       e.preventDefault()
       try {
-        const {data} = await axios.post('http://localhost:8000/api/v1/auth/forgot-password' ,{email, answer, newPassword: password})
+        const {data} = await axios.post('/api/v1/auth/forgot-password' ,{email, answer, newPassword: password})
         if(data.success){
           navigate('/login')
           toast.success(data.message)

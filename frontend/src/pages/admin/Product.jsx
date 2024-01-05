@@ -45,7 +45,7 @@ const Product = () => {
 
   const allProducts =async()=>{
     try {
-      const res = await axios.get("http://localhost:8000/api/v1/product/get")
+      const res = await axios.get("/api/v1/product/get")
       console.log(res.data)
       setData(res.data.products)
       setTotal(res.data.counTotal)
@@ -60,7 +60,7 @@ const Product = () => {
 // get all category
  const getAllCategory = async () => {
   try {
-    const { data } = await axios.get("http://localhost:8000/api/v1/category/get");
+    const { data } = await axios.get("/api/v1/category/get");
     if (data?.success) {
       setCategories(data.categories);
       console.log(data.categories);
@@ -77,7 +77,7 @@ useEffect(() => {
 const handleSubmit =async(e)=>{
   e.preventDefault();
   try {
-    const {data} = await axios.post("http://localhost:8000/api/v1/product/create", {
+    const {data} = await axios.post("/api/v1/product/create", {
       title, description, image, images: [imageFirst, imageSecond, imageThird], category, price, countInStock, rating, numReviews, isFeatured
     })
     if (data?.success) {
@@ -85,13 +85,11 @@ const handleSubmit =async(e)=>{
       setTitle("");
       setDescription("");
       setImage("");
-      setCategory("");
       setPrice("");
       setCountInStock("");
       setRating("");
       setNumReviews("");
       setImageFirst("");
-      setIsFeatured("");
       setImageSecond("");
       setImageThird("");
       allProducts();
@@ -110,7 +108,7 @@ const handleCancel = () => {
 const updateProduct = async(e)=>{
   e.preventDefault();
   try {
-    const {data} = await axios.put(`http://localhost:8000/api/v1/product/update/${id}`,
+    const {data} = await axios.put(`/api/v1/product/update/${id}`,
     {title: updateTitle, 
       description: updateDescription,
       image: updateImage,

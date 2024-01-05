@@ -47,7 +47,7 @@ const TrandingProduct = () => {
 //  Category 1
     const getProductCategory1 = async()=> {
         try {
-            const {data} = await axios.get(`http://localhost:8000/api/v1/product/category/${id1}`)
+            const {data} = await axios.get(`/api/v1/product/category/${id1}`)
             if(data.success){
             setProduct1(data.product)
             }
@@ -58,7 +58,7 @@ const TrandingProduct = () => {
 //  Category 1
     const getProductCategory2 = async()=> {
         try {
-            const {data} = await axios.get(`http://localhost:8000/api/v1/product/category/${id1}`)
+            const {data} = await axios.get(`/api/v1/product/category/${id1}`)
             if(data.success){
             setProduct2(data.product)
             }

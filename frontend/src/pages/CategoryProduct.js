@@ -11,7 +11,7 @@ const CategoryProduct = () => {
 
     const getProduct = async()=> {
         try {
-            const {data} = await axios.get(`http://localhost:8000/api/v1/product/category/${params.id}`)
+            const {data} = await axios.get(`/api/v1/product/category/${params.id}`)
             if(data.success){
             console.log(data)
             setTotal(data.total)

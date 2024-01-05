@@ -8,12 +8,16 @@ import { FaUser,FaPhoneAlt, FaShippingFast } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { GiBrain } from "react-icons/gi";
 import { GiPostOffice } from "react-icons/gi";
+import { useLocation, useNavigate } from 'react-router-dom'
 
 
 const UserProfile = () => {
 
   const[auth, setAuth] = useAuth();
   const user = auth?.user;
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location)
   const[ name, setName ] = useState(user?.name);
   const[ email, setEmail ] = useState(user?.email);
   const[ phone, setPhone ] = useState(user?.phone);
@@ -24,11 +28,14 @@ const UserProfile = () => {
   const handleRegister = async(e) => {
     e.preventDefault();
     try {
-        const {data} = await axios.put(`http://localhost:8000/api/v1/auth/updated/${user._id}`, {name, email, phone, answer: user.answer, address, pin, newAnswer})
+        const {data} = await axios.put(`/api/v1/auth/updated/${user._id}`, {name, email, phone, answer: user.answer, address, pin, newAnswer})
         if(data.success){
             setAuth({ ...auth, user: data?.user, token: data?.token, })
             localStorage.setItem('auth', JSON.stringify(data))
             toast.success(data.message)
+            if(location.state){
+                navigate(location.state)
+            }
         }else{
             toast.warn(data.message)
         }

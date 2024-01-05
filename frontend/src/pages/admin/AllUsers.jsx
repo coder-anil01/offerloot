@@ -26,7 +26,7 @@ const AllUsers = () => {
 
   const getAllUsers = async() => {
     try {
-      const {data} = await axios.get('http://localhost:8000/api/v1/auth/get-allusers')
+      const {data} = await axios.get('/api/v1/auth/get-allusers')
         setUsers(data.allUsers);
         setTotal(data.counTotal)
     } catch (error) {
@@ -39,7 +39,7 @@ useEffect(()=>{
 
 const deleteUser = async()=>{
   try {
-    const {data} = await axios.delete(`http://localhost:8000/api/v1/auth/admin-delete/${id}`)
+    const {data} = await axios.delete(`/api/v1/auth/admin-delete/${id}`)
     setIsModalOpen(false);
     getAllUsers();
   } catch (error) {

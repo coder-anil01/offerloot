@@ -22,7 +22,7 @@ const AdminProfile = () => {
   const handleRegister = async(e) => {
     e.preventDefault();
     try {
-        const {data} = await axios.put(`http://localhost:8000/api/v1/auth/updated/${user._id}`, {name, email, phone, answer: user.answer, address, pin, newAnswer})
+        const {data} = await axios.put(`/api/v1/auth/updated/${user._id}`, {name, email, phone, answer: user.answer, address, pin, newAnswer})
         if(data.success){
             setAuth({ ...auth, user: data?.user, token: data?.token, })
             localStorage.setItem('auth', JSON.stringify(data))

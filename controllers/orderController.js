@@ -18,7 +18,26 @@ export const createOrder = async(req, res) => {
     } catch (error) {
         res.status(500).send({
             success: false,
-            message: "Error While Registation",
+            message: "Internal Server Error",
+            error,
+          });
+    }
+}
+
+//*************  CREATE   *************//
+export const createOneOrder = async(req, res) => {
+    try {
+        const {cart, price, id} = req.body;
+        console.log(cart, id, price)
+        await new orderModel({product: cart, price , user: id }).save();
+        res.status(201).send({
+            success: true,
+            message: "congratulations Order Conform",
+        })
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Internal Server Error",
             error,
           });
     }

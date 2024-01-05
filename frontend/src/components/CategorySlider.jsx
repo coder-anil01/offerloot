@@ -48,7 +48,7 @@ const CategorySlider = () => {
   const getCategories = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/category/get"
+        "/api/v1/category/get"
       );
       if (data.success) {
         setCategory(data.categories);

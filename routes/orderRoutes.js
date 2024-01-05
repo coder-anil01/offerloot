@@ -1,5 +1,5 @@
 import express from "express";
-import { createOrder, getAllOrder, updateStaus, userAllOrders } from "../controllers/orderController.js";
+import { createOneOrder, createOrder, getAllOrder, updateStaus, userAllOrders } from "../controllers/orderController.js";
 
 
 
@@ -7,6 +7,8 @@ import { createOrder, getAllOrder, updateStaus, userAllOrders } from "../control
 const router = express.Router();
 
 router.post("/create", createOrder)
+
+router.post("/createone", createOneOrder)
 
 router.get("/get-all", getAllOrder)
 

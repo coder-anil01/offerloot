@@ -26,6 +26,7 @@ import AllAdmin from "./pages/admin/AllAdmin";
 import Category from "./pages/admin/Category";
 import Product from "./pages/admin/Product";
 import Logout from "./pages/admin/Logout";
+import PaymentBuy from "./pages/user/PaymentBuy";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path='/forgot-password' element={<ForgetPassword/>}/>
         <Route path='/category/:id' element={<CategoryProduct/>}/>
         <Route path='/product/:id' element={<ProductDetails/>}/>
+        <Route path="buy/:id" element={<PaymentBuy/>}/>
         
 {/* USER */}
         <Route path="/dashbord" element={<UserRoute/>}>
@@ -54,6 +56,7 @@ function App() {
         <Route path="order" element={<UserOrder/>}/>
         <Route path="cart" element={<UserCart/>}/>
         <Route path="payment" element={<PaymentPage/>}/>
+        
       </Route>
 {/* ADMIN */}
         <Route path="/admin" element={<AdminRoutes/>}>

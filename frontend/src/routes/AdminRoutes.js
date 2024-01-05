@@ -6,12 +6,12 @@ import { useAuth } from '../context/auth';
 
 const AdminRoutes = () => {
 
-    const [auth, setAuth] = useAuth();
+    const [auth] = useAuth();
     const [admin, setAdmin] = useState(false);
 
     const authCheck = async() => {
         try {
-            const {data} = await axios.post('http://localhost:8000/api/v1/auth/admin-auth', {id: auth?.user?._id})
+            const {data} = await axios.post('/api/v1/auth/admin-auth', {id: auth?.user?._id})
             if(data.success){
               setAdmin(true)
             }

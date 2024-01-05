@@ -16,7 +16,7 @@ const PaymentPage = () => {
 
   const getCart = async()=>{
     try {
-      const {data} = await axios.post("http://localhost:8000/api/v1/cart/get", {user: auth?.user?._id})
+      const {data} = await axios.post("/api/v1/cart/get", {user: auth?.user?._id})
       console.log(data.cart)
       setProducts(data.cart)
     } catch (error) {
@@ -42,7 +42,7 @@ const PaymentPage = () => {
 
   const conformOrder =async()=> {
     try {
-      const {data} = await axios.post('http://localhost:8000/api/v1/order/create', {cart: products, id: auth?.user?._id, cartsId: products});
+      const {data} = await axios.post('/api/v1/order/create', {cart: products, id: auth?.user?._id, cartsId: products});
       if(data.success){
         cartDelete();
         toast.success(data.message);
@@ -56,7 +56,7 @@ const PaymentPage = () => {
 
   const cartDelete =async()=> {
     try {
-      const {data} = await axios.delete(`http://localhost:8000/api/v1/cart/alldelete/${auth?.user._id}`);
+      const {data} = await axios.delete(`/api/v1/cart/alldelete/${auth?.user._id}`);
       if(data.success){
         navigate('/dashbord/order')
       }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { FaLock, FaUser,FaPhoneAlt, FaShippingFast } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -12,6 +12,7 @@ import { useAuth } from '../context/auth';
 const Register = () => {
 
     const navigate = useNavigate();
+    const location = useLocation();
     const [auth, setAuth] = useAuth();
     const[ name, setName ] = useState("");
     const[ email, setEmail ] = useState("");
@@ -24,11 +25,11 @@ const Register = () => {
     const handleRegister = async(e) => {
         e.preventDefault();
         try {
-            const {data} = await axios.post('http://localhost:8000/api/v1/auth/register', {name, email, password, phone, answer,address, pin})
+            const {data} = await axios.post('/api/v1/auth/register', {name, email, password, phone, answer,address, pin})
             if(data.success){
                 setAuth({ ...auth, user: data?.user, token: data?.token, })
                 localStorage.setItem('auth', JSON.stringify(data))
-                navigate('/')
+                navigate( location.state || '/')
                 toast.success(data.message)
             }else{
                 toast.warn(data.message)

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "../style/Login.css"
 import { FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useAuth } from '../context/auth';
@@ -10,6 +10,7 @@ import { useAuth } from '../context/auth';
 const Login = () => {
   
     const navigate = useNavigate();
+    const location = useLocation();
     const [auth, setAuth] = useAuth();
     const[ email, setEmail ] = useState("");
     const[ password, setPassword ] = useState("");
@@ -17,12 +18,12 @@ const Login = () => {
     const handleLogin = async(e) => {
       e.preventDefault()
       try {
-        const {data} = await axios.post('http://localhost:8000/api/v1/auth/login' ,{email, password})
+        const {data} = await axios.post('/api/v1/auth/login' ,{email, password})
         if(data.success){
           setAuth({ ...auth, user: data?.user, token: data?.token, })
           localStorage.setItem('auth', JSON.stringify(data))
           toast.success(data.message)
-          navigate('/')
+          navigate(location.state ||'/')
         }else{
           toast.warn(data.message)
         }

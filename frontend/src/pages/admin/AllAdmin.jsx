@@ -29,7 +29,7 @@ const AllAdmin = () => {
   
   const getAllAdmin = async()=>{
     try {
-      const {data} = await axios.get("http://localhost:8000/api/v1/auth/get-alladmin")
+      const {data} = await axios.get("/api/v1/auth/get-alladmin")
       setUser(data.allAdmin)
       setTotal(data.countTotal)
     } catch (error) {
@@ -39,7 +39,7 @@ const AllAdmin = () => {
 
   const deleteAdmin = async()=>{
     try {
-      const {data} = await axios.delete(`http://localhost:8000/api/v1/auth/admin-delete/${id}`)
+      const {data} = await axios.delete(`/api/v1/auth/admin-delete/${id}`)
       setIsModalOpen(false);
       getAllAdmin();
     } catch (error) {

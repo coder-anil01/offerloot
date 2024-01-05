@@ -17,7 +17,7 @@ const NavCartPage = () => {
 
   const getCart = async()=>{
     try {
-      const {data} = await axios.post("http://localhost:8000/api/v1/cart/get", {user: auth?.user?._id})
+      const {data} = await axios.post("/api/v1/cart/get", {user: auth?.user?._id})
       setProducts(data.cart)
     } catch (error) {
       console.log(error)
@@ -30,7 +30,7 @@ const NavCartPage = () => {
 
   const deletCartProduct = async(id)=> {
     try {
-      const {data} =await axios.delete(`http://localhost:8000/api/v1/cart/delete/${id}`)
+      const {data} =await axios.delete(`/api/v1/cart/delete/${id}`)
       toast.success(data.message)
       getCart();
     } catch (error) {

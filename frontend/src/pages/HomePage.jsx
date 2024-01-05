@@ -19,7 +19,7 @@ const HomePage = () => {
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/product/get"
+        "/api/v1/product/get"
       );
       if (data.success) {
         setProduct(data.products);
@@ -36,7 +36,7 @@ const HomePage = () => {
 // WISHLIST
   const addToWishlist = async(id) => {
     try {
-      const {data} = await axios.post('http://localhost:8000/api/v1/wishlist/create' , {product: id, user: auth?.user._id})
+      const {data} = await axios.post('/api/v1/wishlist/create' , {product: id, user: auth?.user._id})
       console.log(data)
       if(data.success){
         toast.success(data.message)
@@ -51,7 +51,7 @@ const HomePage = () => {
 // CART 
   const addToCart = async(id) => {
     try {
-      const {data} = await axios.post("http://localhost:8000/api/v1/cart/create", {product: id, user: auth?.user._id})
+      const {data} = await axios.post("/api/v1/cart/create", {product: id, user: auth?.user._id})
       if(data.success){
         toast.success(data.message)
       }else{

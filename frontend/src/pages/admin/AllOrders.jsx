@@ -15,7 +15,7 @@ const AllOrders = () => {
   const[total, setTotal] = useState(0);
   const allOrders = async() => {
     try {
-      const {data} = await axios.get('http://localhost:8000/api/v1/order/get-all')
+      const {data} = await axios.get('/api/v1/order/get-all')
       setOrders(data?.order)
       setTotal(data?.total)
     } catch (error) {
@@ -29,7 +29,7 @@ const AllOrders = () => {
 
   const handleChange = async (id, value) => {
     try {
-      const { data } = await axios.put(`http://localhost:8000/api/v1/order/update/${id}`, {status: value});
+      const { data } = await axios.put(`/api/v1/order/update/${id}`, {status: value});
       toast.success(data?.message)
     } catch (error) {
       toast.error("Internal Server Error");
@@ -49,20 +49,20 @@ const AllOrders = () => {
       <h2 className='dashbord-form-heading'>All Orders:- {total}</h2>
       <div className='dashbord-admin-order-content'>
           {orders?.map(item => (
-            <div className='dashbord-admin-order-card' key={item.product._id}>
-                <Link className="dashbord-admin-order-image-main" to={`/product/${item.product._id}`}><img className='dashbord-admin-order-image' src={item.product.image} alt="" /></Link>
+            <div className='dashbord-admin-order-card' key={item?.product?._id}>
+                <Link className="dashbord-admin-order-image-main" to={`/product/${item?.product?._id}`}><img className='dashbord-admin-order-image' src={item?.product?.image} alt="" /></Link>
                 <div className='dashbord-admin-order-text'>
-                  <div className="dashbord-admin-order-id"> <strong>Order Id:- </strong>{item._id}</div>
-                  <div className='dashbord-admin-order-title'>{item.product.title.slice(0,30)}...</div>
-                  <div className='dashbord-admin-order-price'><strong>Price:- </strong>₹ {item.price}/-</div>
-                  <div className='dashbord-admin-order-payment'><strong>Payment:- </strong>{item.payment}</div>
-                  <div className="dashbord-admin-order-date"><strong>Date:- </strong>{new Date(item.createdAt).toLocaleDateString('en-US', options)}</div>
+                  <div className="dashbord-admin-order-id"> <strong>Order Id:- </strong>{item?._id}</div>
+                  <div className='dashbord-admin-order-title'>{item?.product?.title.slice(0,30)}...</div>
+                  <div className='dashbord-admin-order-price'><strong>Price:- </strong>₹ {item?.price}/-</div>
+                  <div className='dashbord-admin-order-payment'><strong>Payment:- </strong>{item?.payment}</div>
+                  <div className="dashbord-admin-order-date"><strong>Date:- </strong>{new Date(item?.createdAt).toLocaleDateString('en-US', options)}</div>
                   <div className='dashbord-admin-order-status'><strong>Status:- </strong>
                   <Select
-                    defaultValue={item.status}
+                    defaultValue={item?.status}
                     className='dashbord-admin-order-status-select'
                     style={{width: "150px", marginLeft: "10px"}}
-                    onChange={(value) => handleChange(item._id, value)}>
+                    onChange={(value) => handleChange(item?._id, value)}>
                       <Option value="Processing">Processing</Option>
                       <Option value="Shipped">Shipped</Option>
                       <Option value="Out Of Delivery">Out Of Delivery</Option>
@@ -76,9 +76,9 @@ const AllOrders = () => {
                   </div>
                 </div>
                 <div className="dashbord-admin-order-text">
-                  <div className="dashbord-admin-order-user-name"><FaUser/> {item.user.name}</div>
-                  <div className="dashbord-admin-order-user-phone"><FaPhoneAlt/> {item.user.phone}</div>
-                  <div className="dashbord-admin-order-user-home"><FaHome/> {item.user.address}</div>
+                  <div className="dashbord-admin-order-user-name"><FaUser/> {item?.user.name}</div>
+                  <div className="dashbord-admin-order-user-phone"><FaPhoneAlt/> {item?.user.phone}</div>
+                  <div className="dashbord-admin-order-user-home"><FaHome/> {item?.user.address}</div>
                   
                 </div>
             </div>

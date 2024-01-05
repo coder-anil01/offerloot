@@ -24,9 +24,7 @@ const UserOrder = () => {
 
   const handleOk = async () => {
     try {
-      const {data} =await axios.put(`http://localhost:8000/api/v1/order/update/${id}`, {status: cancle})
-      console.log(id)
-      console.log(cancle)
+      await axios.put(`/api/v1/order/update/${id}`, {status: cancle})
       setIsModalOpen(false);
       getAllOrders();
       toast.success("Order Item Cancelled")
@@ -42,7 +40,7 @@ const UserOrder = () => {
 
   const getAllOrders = async()=> {
     try {
-      const {data} = await axios.post('http://localhost:8000/api/v1/order/user-order', {id: auth?.user._id})
+      const {data} = await axios.post('/api/v1/order/user-order', {id: auth?.user._id})
       console.log(data.orders)
       setOrders(data.orders)
     } catch (error) {
@@ -59,19 +57,19 @@ const UserOrder = () => {
       <div className='dashbord-content'>
       <div className='nav-cart-product'>
           {orders?.map(item => (
-            <div className='nav-cart-product-card' key={item.product._id}>
+            <div className='nav-cart-product-card' key={item?.product?._id}>
               <div className='nav-cart-product-card-left'>
-                <Link to={`/product/${item.product._id}`}><img className='nav-cart-product-image' src={item.product.image} alt="" /></Link>
+                <Link to={`/product/${item?.product?._id}`}><img className='nav-cart-product-image' src={item?.product?.image} alt="" /></Link>
                 <div className='nav-cart-product-text'>
-                  <div className='nav-cart-product-title'>{item.product.title.slice(0,25)}...</div>
-                  <div className='nav-cart-product-price'><strong>Price:- </strong>₹ {item.price}/-</div>
+                  <div className='nav-cart-product-title'>{item?.product?.title.slice(0,25)}...</div>
+                  <div className='nav-cart-product-price'><strong>Price:- </strong>₹ {item?.price}/-</div>
                   <div className='order-product-status'><strong>Status:- </strong>
-                  {item.status.slice(0,6) == "Cancle" ? <div className='order-product-status-icon-cancle'><IoMdCheckmarkCircle/> </div> : <div className='order-product-status-icon'><IoShieldCheckmarkSharp/> </div> }
-                   {item.status}</div>
-                  <div className='nav-cart-product-price'><strong>Payment:- </strong>{item.payment}</div>
+                  {item?.status.slice(0,6) === "Cancle" ? <div className='order-product-status-icon-cancle'><IoMdCheckmarkCircle/> </div> : <div className='order-product-status-icon'><IoShieldCheckmarkSharp/> </div> }
+                   {item?.status}</div>
+                  <div className='nav-cart-product-price'><strong>Payment:- </strong>{item?.payment}</div>
                 </div>
               </div>
-              <button onClick={()=> {showModal(); setOrderid(item._id)}} className='nav-cart-product-remove' >Cancle</button>
+              <button onClick={()=> {showModal(); setOrderid(item?._id)}} className='nav-cart-product-remove' >Cancle</button>
             </div>
           ))}
         </div>

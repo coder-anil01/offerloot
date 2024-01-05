@@ -15,7 +15,7 @@ const Wishlist = () => {
   // get
   const getWishlist = async() => {
     try {
-      const {data} = await axios.post(`http://localhost:8000/api/v1/wishlist/get/${auth?.user._id}`)
+      const {data} = await axios.post(`/api/v1/wishlist/get/${auth?.user._id}`)
       console.log(data.wishlist)
       setProduct(data.wishlist)
     } catch (error) {
@@ -30,7 +30,7 @@ const Wishlist = () => {
   // CART 
   const addToCart = async(id) => {
     try {
-      const {data} = await axios.post("http://localhost:8000/api/v1/cart/create", {product: id, user: auth?.user._id})
+      const {data} = await axios.post("/api/v1/cart/create", {product: id, user: auth?.user._id})
       if(data.success){
         toast.success(data.message)
       }else{
@@ -43,7 +43,7 @@ const Wishlist = () => {
 
   const handleDelete = async(id)=>{
     try {
-      const {data} = await axios.delete(`http://localhost:8000/api/v1/wishlist/delete/${id}`)
+      const {data} = await axios.delete(`/api/v1/wishlist/delete/${id}`)
       if(data.success){
         toast.info(data.message)
         getWishlist();

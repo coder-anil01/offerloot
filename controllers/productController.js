@@ -4,8 +4,6 @@ import productModel from "../models/productModel.js";
 export const productCreateController = async (req, res) => {
     try {
        const { title, description,image, images, category, price, countInStock, rating, numReviews, isFeatured } = req.body
-       console.log(images)
-       console.log(image)
        if( !title || !description || !image || !images || !category || !price || !countInStock || !rating ){
         return res.status(404).send({error: "Plese fill the required field"})
        }
