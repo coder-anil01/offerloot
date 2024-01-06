@@ -7,11 +7,13 @@ import { Modal } from 'antd';
 import { toast } from 'react-toastify';
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { IoMdCheckmarkCircle } from "react-icons/io";
+import SeoHelmet from '../../components/SeoHelmet';
 
 
 const UserOrder = () => {
 
   const[orders, setOrders] = useState([]);
+  const[total, setTotal] = useState(0);
   const [auth] = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const[cancle, setCancle] = useState("");
@@ -41,7 +43,7 @@ const UserOrder = () => {
   const getAllOrders = async()=> {
     try {
       const {data} = await axios.post('/api/v1/order/user-order', {id: auth?.user._id})
-      console.log(data.orders)
+      setTotal(data.totalOrders)
       setOrders(data.orders)
     } catch (error) {
       console.log(error)
@@ -52,12 +54,14 @@ const UserOrder = () => {
     getAllOrders();
   },[auth])
   return (
+  <>
+      <SeoHelmet title={total > 0 ? `(${total}) Item Ordered` : "My Order"} description="My orders, My control. The Order Edit feature puts the power in your hands. Make changes, track shipments, or manage returns effortlessly. Need to update an address, modify items, or check the status? This is where it happens. Seamlessly navigate through your order history, ensuring every detail aligns with your preferences. From confirmation to delivery, your satisfaction is our priority. Your order edit feature is the compass guiding your shopping journey, providing flexibility and convenience at every turn. Dive in, manage with ease, and enjoy a shopping experience tailored just for you."/>
     <div className='dashbord'>
       <div className='dashbord-menu'><UserMenu/></div>
       <div className='dashbord-content'>
       <div className='nav-cart-product'>
           {orders?.map(item => (
-            <div className='nav-cart-product-card' key={item?.product?._id}>
+            <div className='nav-cart-product-card' key={item?._id}>
               <div className='nav-cart-product-card-left'>
                 <Link to={`/product/${item?.product?._id}`}><img className='nav-cart-product-image' src={item?.product?.image} alt="" /></Link>
                 <div className='nav-cart-product-text'>
@@ -86,6 +90,7 @@ const UserOrder = () => {
         </select>
       </Modal>
     </div>
+  </>
   )
 }
 

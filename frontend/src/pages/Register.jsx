@@ -7,6 +7,7 @@ import { GiBrain } from "react-icons/gi";
 import { toast } from 'react-toastify';
 import { GiPostOffice } from "react-icons/gi";
 import { useAuth } from '../context/auth';
+import SeoHelmet from '../components/SeoHelmet';
 
 
 const Register = () => {
@@ -40,6 +41,8 @@ const Register = () => {
     }
 
   return (
+    <>
+    <SeoHelmet title="Create Account" description="Welcome to our registration page! Join our vibrant community by creating your personal account. Registering with us opens the door to a world of possibilities. Whether you're here to shop, connect, or explore, signing up is your gateway to exclusive offers, personalized recommendations, and seamless access to our services. It's quick, easy, and free! Simply fill in your details to get started on your journey with us. Your adventure awaits!"/>
     <div className='login-form-body'>
       <form className='login-form' onSubmit={handleRegister}>
       <h1 className='login-form-heading'>Create Account</h1>
@@ -123,6 +126,7 @@ const Register = () => {
         <div className='login-form-benidit'>I have an account <Link className='login-form-link' to='/login'>Login</Link></div>
       </form>
     </div>
+    </>
   )
 }
 

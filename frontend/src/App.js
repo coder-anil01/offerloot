@@ -34,8 +34,8 @@ function App() {
     <Router>
     <ToastContainer
     autoClose={2000}
-    transition={Flip}
-    />
+    transition={Flip}/>
+
     <NavBar/>
       <Routes> 
         <Route path='/' element={<HomePage/>}/>

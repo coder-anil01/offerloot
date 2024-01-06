@@ -6,11 +6,12 @@ import { toast } from 'react-toastify';
 import { IoIosMail } from "react-icons/io";
 import { FaPhoneAlt,FaUser,  } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import SeoHelmet from '../../components/SeoHelmet';
 
 const AllUsers = () => {
 
   const [users, setUsers] = useState([]);
-  const[total, setTotal] = useState(0);
+  const[total, setTotal] = useState("");
   const[id, setId] = useState("");
   const[name, setName] = useState("");
   const[email, setEmail] = useState("");
@@ -48,6 +49,9 @@ const deleteUser = async()=>{
 }
 
   return (
+    <>
+    <SeoHelmet title={`(${total} ) Users Registered`} description='The "Admin All Users" section within an eCommerce platform provides administrators or store owners with a comprehensive view and management interface for all user accounts accessing the system. This area allows administrators to oversee, manage, and maintain user profiles, ensuring smooth operations and access control within the eCommerce environment'/>
+    {/* <SeoHelmet title="" description=""/> */}
     <div className='dashbord'>
       <div className='dashbord-menu'><AdminMenu/></div>
       <div className=''>
@@ -69,6 +73,7 @@ const deleteUser = async()=>{
       </Modal>
       </div>
     </div>
+    </>
   )
 }
 

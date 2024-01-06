@@ -6,13 +6,14 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { Select } from "antd";
 import { toast } from "react-toastify";
+import SeoHelmet from "../../components/SeoHelmet";
 const { Option } = Select;
 
 
 const AllOrders = () => {
 
   const [orders, setOrders] = useState([]);
-  const[total, setTotal] = useState(0);
+  const[total, setTotal] = useState("");
   const allOrders = async() => {
     try {
       const {data} = await axios.get('/api/v1/order/get-all')
@@ -43,6 +44,8 @@ const AllOrders = () => {
   };
 
   return (
+    <>
+    <SeoHelmet title={`(${total}) Items Order`} description="An admin order dashboard in an eCommerce platform is a central interface specifically designed for administrators or store owners to oversee and manage all aspects of incoming orders. It serves as a control center providing a comprehensive view of the order fulfillment process, enabling effective handling of customer purchases and streamlining operational workflows."/>
     <div className='dashbord'>
       <div className='dashbord-menu'><AdminMenu/></div>
       <div className='dashbord-admin-product-contain'>
@@ -76,9 +79,9 @@ const AllOrders = () => {
                   </div>
                 </div>
                 <div className="dashbord-admin-order-text">
-                  <div className="dashbord-admin-order-user-name"><FaUser/> {item?.user.name}</div>
-                  <div className="dashbord-admin-order-user-phone"><FaPhoneAlt/> {item?.user.phone}</div>
-                  <div className="dashbord-admin-order-user-home"><FaHome/> {item?.user.address}</div>
+                  <div className="dashbord-admin-order-user-name"><FaUser/> {item?.user?.name}</div>
+                  <div className="dashbord-admin-order-user-phone"><FaPhoneAlt/> {item?.user?.phone}</div>
+                  <div className="dashbord-admin-order-user-home"><FaHome/> {item?.user?.address}</div>
                   
                 </div>
             </div>
@@ -86,6 +89,7 @@ const AllOrders = () => {
         </div>
       </div>
     </div>
+  </>
   )
 }
 

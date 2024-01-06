@@ -2,6 +2,9 @@
   "name": "my-app",
   "version": "0.1.0",
   "proxy": "http://localhost:8000",
+  "allowedHosts": [
+    "http://localhost"
+  ],
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -14,6 +17,8 @@
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18.2.0",
+    "react-head": "^3.4.2",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",

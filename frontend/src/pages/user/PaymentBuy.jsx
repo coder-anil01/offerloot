@@ -8,6 +8,7 @@ import { Collapse } from 'antd';
 import { toast } from 'react-toastify';
 import { Modal } from "antd";
 import Coungraculation from "../../image/right.png";
+import SeoHelmet from '../../components/SeoHelmet';
 
 
 const PaymentBuy = () => {
@@ -68,6 +69,7 @@ const PaymentBuy = () => {
 
   return (
     <>
+    <SeoHelmet title="💸(COD) Order Product" description="Cash on Delivery,' a hassle-free way to complete your purchase. With this method, you can finalize your order by paying in cash upon the delivery of your chosen items. Enjoy the flexibility and peace of mind knowing that you can inspect your products before making the payment. It's a simple, reliable way to shop, ensuring your satisfaction every step of the way. Select 'Cash on Delivery' at checkout and indulge in a seamless shopping experience, where convenience meets trust."/>
     {auth?.user ? <>
         <div className='payment-buy'>
         <Collapse accordion={true} expandIconPosition='right' activeKey={[showkay]} size='small' >

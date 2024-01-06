@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useAuth } from '../context/auth';
+import SeoHelmet from '../components/SeoHelmet';
 
 const Login = () => {
   
@@ -33,6 +34,8 @@ const Login = () => {
     }
 
   return (
+    <>
+    <SeoHelmet title="Login Page" description="The login page is the initial interface presented to users when accessing a protected application or platform. It acts as a checkpoint, requiring users to authenticate their identity before gaining access to the system's features"/>
     <div className='login-form-body'>
       <form className='login-form' onSubmit={handleLogin}>
         <h1 className='login-form-heading'>Login Page</h1>
@@ -62,6 +65,7 @@ const Login = () => {
         <div className='login-form-benidit'>I don't have an account <Link className='login-form-link' to='/register'>Create</Link></div>
       </form>
     </div>
+    </>
   )
 }
 

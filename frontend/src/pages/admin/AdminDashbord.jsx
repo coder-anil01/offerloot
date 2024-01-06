@@ -1,6 +1,7 @@
 import React from 'react'
 import AdminMenu from './AdminMenu'
 import Chart from 'react-apexcharts';
+import SeoHelmet from '../../components/SeoHelmet';
 
 const AdminDashbord = () => {
 
@@ -70,6 +71,8 @@ const AdminDashbord = () => {
   };
 
   return (
+    <>
+    <SeoHelmet title="Admin Dashbord" description="An eCommerce admin dashboard is a central hub or interface designed specifically for managing an online store's operations. It's a tool that provides administrators and store owners with an overview of their eCommerce platform's performance, sales metrics, inventory, customer data, and various other key aspects of their business. The dashboard typically includes several features"/>
     <div className='dashbord'>
       <div className='dashbord-menu'><AdminMenu/></div>
       <div className='dashbord-content'>
@@ -98,6 +101,7 @@ const AdminDashbord = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

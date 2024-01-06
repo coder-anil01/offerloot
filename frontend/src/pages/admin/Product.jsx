@@ -4,6 +4,7 @@ import AdminMenu from './AdminMenu'
 import axios from 'axios';
 import { Select } from "antd";
 import { toast } from 'react-toastify';
+import SeoHelmet from '../../components/SeoHelmet';
 const { Option } = Select;
 
 const Product = () => {
@@ -144,6 +145,8 @@ const editProduct = async(p)=>{
 }
 
   return (
+    <>
+    <SeoHelmet title="Manage Product" description={`The "Admin Create Product" feature within an eCommerce platform is a critical tool that enables administrators or store owners to add new products to their online store inventory. It's a centralized interface where they can input, manage, and publish product information, making items available for customers to browse, search, and purchase.`}/>
     <div className='dashbord'>
       <div className='dashbord-menu'><AdminMenu/></div>
       <div className='dashbord-admin-product-contain'>
@@ -426,6 +429,7 @@ const editProduct = async(p)=>{
       </form>
       </Modal>
     </div>
+    </>
   )
 }
 

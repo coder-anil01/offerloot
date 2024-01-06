@@ -9,6 +9,7 @@ import { MdEmail } from "react-icons/md";
 import { GiBrain } from "react-icons/gi";
 import { GiPostOffice } from "react-icons/gi";
 import { useLocation, useNavigate } from 'react-router-dom'
+import SeoHelmet from '../../components/SeoHelmet'
 
 
 const UserProfile = () => {
@@ -45,6 +46,8 @@ const UserProfile = () => {
 }
 
   return (
+    <>
+    <SeoHelmet title="Edit My Account" description="Welcome to the heart of personalization: the Account Edit section. Here, you wield the power to tailor your shopping experience to perfection. Update your personal details, manage shipping addresses, and fine-tune your preferences effortlessly. Whether it's tweaking your sizing options, updating your communication preferences, or refining your saved payment methods, this is your space for customization"/>
     <div className='dashbord'>
       <div className='dashbord-menu'><UserMenu/></div>
       <div className='dashbord-content'>
@@ -117,6 +120,7 @@ const UserProfile = () => {
 
       </div>
     </div>
+    </>
   )
 }
 

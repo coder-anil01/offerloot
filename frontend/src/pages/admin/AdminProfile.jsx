@@ -7,6 +7,7 @@ import { FaUser,FaPhoneAlt, FaShippingFast } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { GiBrain } from "react-icons/gi";
 import { GiPostOffice } from "react-icons/gi";
+import SeoHelmet from '../../components/SeoHelmet';
 
 const AdminProfile = () => {
 
@@ -36,6 +37,8 @@ const AdminProfile = () => {
 }
 
   return (
+    <>
+    <SeoHelmet title="Admin Prodile Edit" description="An admin profile editor in an eCommerce setting refers to the functionality within the system that allows administrators or store owners to edit and manage their personal or team profiles. It serves as a central tool for maintaining accurate and updated information about the individuals who have access to the administrative functions of the eCommerce platform."/>
     <div className='dashbord'>
       <div className='dashbord-menu'><AdminMenu/></div>
       <div className='dashbord-content'>
@@ -106,6 +109,7 @@ const AdminProfile = () => {
       </form>
       </div>
     </div>
+    </>
   )
 }
 

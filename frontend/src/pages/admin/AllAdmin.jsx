@@ -6,6 +6,7 @@ import { FaPhoneAlt,FaUser,  } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Button, Modal } from 'antd';
 import { toast } from 'react-toastify';
+import SeoHelmet from '../../components/SeoHelmet';
 
 
 
@@ -39,7 +40,7 @@ const AllAdmin = () => {
 
   const deleteAdmin = async()=>{
     try {
-      const {data} = await axios.delete(`/api/v1/auth/admin-delete/${id}`)
+      await axios.delete(`/api/v1/auth/admin-delete/${id}`)
       setIsModalOpen(false);
       getAllAdmin();
     } catch (error) {
@@ -51,6 +52,8 @@ const AllAdmin = () => {
     getAllAdmin()
   },[])
   return (
+    <>
+    <SeoHelmet title={`(${total}) Admin `} description="An admin order dashboard in an eCommerce platform is a central interface specifically designed for administrators or store owners to oversee and manage all aspects of incoming orders. It serves as a control center providing a comprehensive view of the order fulfillment process, enabling effective handling of customer purchases and streamlining operational workflows."/>
     <div className='dashbord'>
       <div className='dashbord-menu'><AdminMenu/></div>
       <div className=''>
@@ -72,6 +75,7 @@ const AllAdmin = () => {
       </Modal>
       </div>
     </div>
+    </>
   )
 }
 

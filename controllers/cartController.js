@@ -26,11 +26,12 @@ export const getCart = async(req, res) => {
         if(!user){
             return res.status(200).send({ message: "Somthing Went Wrong"})
         }
-        const cart = await cartModel.find({user}).populate("product");
+        const cart = await cartModel.find({user}).populate("product").select('-user');
         res.status(200).send({
             success: true,
             message: "All Cart",
             cart,
+            total: cart.length,
         })
     } catch (error) {
         res.status(404).send({

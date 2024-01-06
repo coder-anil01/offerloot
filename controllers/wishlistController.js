@@ -30,6 +30,7 @@ export const userwishlist = async (req, res) => {
             success: true,
             message: "Get All wishlist",
             wishlist,
+            total: wishlist.length,
         })
     } catch (error) {
         res.status(500).send({

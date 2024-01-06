@@ -4,8 +4,8 @@ import { useAuth } from '../context/auth'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link } from "react-router-dom";
-import Cartimage from '../image/pngwing.com.png'
 import { FaHome, FaUser,FaPhoneAlt } from "react-icons/fa";
+import SeoHelmet from '../components/SeoHelmet';
 
 
 
@@ -14,11 +14,13 @@ const NavCartPage = () => {
 
   const [auth] = useAuth();
   const [products, setProducts] = useState([])
+  const [total, setTotal] = useState(0);
 
   const getCart = async()=>{
     try {
       const {data} = await axios.post("/api/v1/cart/get", {user: auth?.user?._id})
       setProducts(data.cart)
+      setTotal(data.total)
     } catch (error) {
       console.log(error)
     }
@@ -51,6 +53,8 @@ const NavCartPage = () => {
   }
 
   return (
+    <>
+    <SeoHelmet title={total > 0 ? `(${total}) Items In Your Cart`: "Cart Page Is Empty"} description="Welcome to your shopping cart - the place where your dreams and selections come together! Here, you'll find all the fantastic items you've chosen in one convenient spot"/>
     <div className='nav-cart'>
       <div className='nav-cart-left'>
         <div className='nav-cart-address'>
@@ -89,6 +93,7 @@ const NavCartPage = () => {
         
       </div>
     </div>
+    </>
   )
 }
 

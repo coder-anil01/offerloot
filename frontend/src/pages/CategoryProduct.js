@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom';
 import CategorySlider from '../components/CategorySlider';
+import SeoHelmet from '../components/SeoHelmet';
 
 const CategoryProduct = () => {
 
@@ -27,6 +28,7 @@ const CategoryProduct = () => {
 
   return (
     <div>
+    <SeoHelmet title="Filter Product By Category" description="Discover your perfect match with our intuitive category filtering system. Navigate through our extensive collection effortlessly by using our 'Filter by Category' feature. Whether you're looking for specific items or simply exploring, streamline your search by selecting from a diverse range of categories. From fashion to electronics, home essentials to hobbies, our organized categories help you pinpoint exactly what you're looking for. Refine your browsing experience"/>
 {/* CAREGORY SHOW */}
       <div style={{marginBottom: "40px"}}><CategorySlider/></div>
 

@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaHome, FaUser,FaPhoneAlt } from "react-icons/fa";
 import { useAuth } from '../../context/auth';
 import { FaTruckArrowRight } from "react-icons/fa6";
+import SeoHelmet from '../../components/SeoHelmet';
 
 
 const PaymentPage = () => {
@@ -66,6 +67,8 @@ const PaymentPage = () => {
   }
 
   return (
+    <>
+    <SeoHelmet title="💸(COD) Order Product" description="Cash on Delivery,' a hassle-free way to complete your purchase. With this method, you can finalize your order by paying in cash upon the delivery of your chosen items. Enjoy the flexibility and peace of mind knowing that you can inspect your products before making the payment. It's a simple, reliable way to shop, ensuring your satisfaction every step of the way. Select 'Cash on Delivery' at checkout and indulge in a seamless shopping experience, where convenience meets trust."/>
     <div className='nav-cart'>
       <div className='nav-cart-left'>
         <div className='nav-cart-address'>
@@ -89,6 +92,7 @@ const PaymentPage = () => {
         <Link to="/dashbord/payment" onClick={conformOrder} className='nav-cart-place-order'>Conform Order <FaTruckArrowRight style={{fontSize:"22px"}}/></Link>
       </div>
     </div>
+    </>
   )
 }
 

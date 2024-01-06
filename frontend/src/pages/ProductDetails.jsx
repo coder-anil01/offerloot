@@ -6,6 +6,7 @@ import { FaRegStar } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import { FaRegHeart, FaCartPlus } from "react-icons/fa";
 import { useAuth } from '../context/auth';
+import SeoHelmet from '../components/SeoHelmet';
 
 
 const ProductDetails = () => {
@@ -75,6 +76,7 @@ const ProductDetails = () => {
 
   return (
     <>
+    <SeoHelmet title={product?.title} description={product?.description}/>
     <div className='product-detail'>
       <div className='product-detail-images'>
         <img onMouseEnter={()=> setBigImage(product?.image)} src={product?.image} alt="" />
@@ -96,11 +98,11 @@ const ProductDetails = () => {
         </div>
       </div>
       <div className='product-detail-text'>
-        <div className='product-detail-title'>{product.title}</div>
-        <div className='product-detail-price'>₹ {product.price}</div>
-        <div className='product-detail-description'>{product.description}</div>
-        <div className='product-detail-isFeatured'><strong>Recommended for </strong>{product.isFeatured}</div>
-        <div className='product-detail-rating'><div>{product.rating} <FaRegStar/></div> ({product.numReviews} Reviews)</div>
+        <div className='product-detail-title'>{product?.title}</div>
+        <div className='product-detail-price'>₹ {product?.price}</div>
+        <div className='product-detail-description'>{product?.description}</div>
+        <div className='product-detail-isFeatured'><strong>Recommended for </strong>{product?.isFeatured}</div>
+        <div className='product-detail-rating'><div>{product.rating} <FaRegStar/></div> ({product?.numReviews} Reviews)</div>
       </div>
     </div>
       <div className='simler-products'>
@@ -110,7 +112,7 @@ const ProductDetails = () => {
         {products?.map((p) => (
           <div key={p._id} className="product-box-card">
             <div className="product-box-image-main">
-              <Link to={`/product/${p._id}`}><img className="product-box-image" src={p.image} alt={p.title.slice(0, 10)}/></Link>
+              <Link to={`/product/${p._id}`}><img className="product-box-image" src={p?.image} alt={p?.title?.slice(0, 10)}/></Link>
             </div>
             <div className="product-box-text">
               <div className="product-card-icon">
