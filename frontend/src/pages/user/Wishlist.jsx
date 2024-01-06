@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { FaCartPlus } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import SeoHelmet from '../../components/SeoHelmet';
+import CartEmpty from '../../components/CartEmpty';
 
 
 const Wishlist = () => {
@@ -60,7 +61,8 @@ const Wishlist = () => {
   return (
     <>
     <SeoHelmet title={total > 0 ? `(${total}) Item In WishList` : "My WishList"} description="Welcome to your curated collection, your very own wishlist! This space is all about you—where dreams meet the click of a button. Add, remove, and organize items that catch your eye, making it effortless to keep track of the things you love. Whether it's creating different lists for various occasions or refining your selection, your wishlist is your personal style guide. Keep your favorite products close at hand, ready for your next shopping adventure. It's more than just a list; it's your ever-evolving catalog of desires, making shopping with us a reflection of your unique taste and preferences."/>
-    <div className='dashbord'>
+    { total > 0 ? <>
+      <div className='dashbord'>
       <div className='dashbord-menu'><UserMenu/></div>
       <div className='dashbord-content'>
       <div className="product-box">
@@ -82,6 +84,9 @@ const Wishlist = () => {
       </div>
       </div>
     </div>
+    </> : <><CartEmpty title={'Your WishList Is Empty'}/></>}
+    
+    
     </>
   )
 }

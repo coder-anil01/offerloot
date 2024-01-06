@@ -152,17 +152,21 @@
     .product-detail-rating div{}
     .product-detail-button{
         position: fixed;
-        bottom: 5px;
+        bottom: 0;
+        left: 0;
+        right: 0;
         display: flex;
-        justify-content: space-between;
-        width: 90%;
-        margin-top: 10px;
+        justify-content: space-around;
         background-color: white;
-        z-index: 100;
+        width: 100vw;
+        z-index: 200;
+        padding: 2px 0 10px 0;
+        
     }
     .product-detail-button-buy,
     .product-detail-button-cart{
-        width: 49%;
+        width: 45%;
+        border-radius: 20px;
     }
 }
 
@@ -184,6 +188,8 @@
     }
     .product-detail-images-buttom img{
         width: 19vw;
+        height: 19vw;
+        object-fit: contain;
         border: 1px solid black;
     }
     .product-detail-image{
@@ -205,17 +211,12 @@
     .product-detail-isFeatured{}
     .product-detail-rating{}
     .product-detail-rating div{}
-    .product-detail-button{
-        position: fixed;
-        bottom: 5px;
-        display: flex;
-        justify-content: space-between;
-        width: 90%;
-        background-color: white;
-        z-index: 100;
+    .simler-products-heading{
+        font-size: 18px;
+        font-weight: 700;
+        opacity: 0.8;
+        padding: 10px 0;
+        text-align: center;
     }
-    .product-detail-button-buy,
-    .product-detail-button-cart{
-        width: 49%;
-    }
+    
 }

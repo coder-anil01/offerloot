@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import SeoHelmet from '../../components/SeoHelmet';
+import Orderimage from '../../image/order.png'
 
 
 const UserOrder = () => {
@@ -55,25 +56,26 @@ const UserOrder = () => {
   },[auth])
   return (
   <>
-      <SeoHelmet title={total > 0 ? `(${total}) Item Ordered` : "My Order"} description="My orders, My control. The Order Edit feature puts the power in your hands. Make changes, track shipments, or manage returns effortlessly. Need to update an address, modify items, or check the status? This is where it happens. Seamlessly navigate through your order history, ensuring every detail aligns with your preferences. From confirmation to delivery, your satisfaction is our priority. Your order edit feature is the compass guiding your shopping journey, providing flexibility and convenience at every turn. Dive in, manage with ease, and enjoy a shopping experience tailored just for you."/>
-    <div className='dashbord'>
+    <SeoHelmet title={total > 0 ? `(${total}) Item Ordered` : "My Order"} description="My orders, My control. The Order Edit feature puts the power in your hands. Make changes, track shipments, or manage returns effortlessly. Need to update an address, modify items, or check the status? This is where it happens. Seamlessly navigate through your order history, ensuring every detail aligns with your preferences. From confirmation to delivery, your satisfaction is our priority. Your order edit feature is the compass guiding your shopping journey, providing flexibility and convenience at every turn. Dive in, manage with ease, and enjoy a shopping experience tailored just for you."/>
+    { total > 0 ? <>
+      <div className='dashbord'>
       <div className='dashbord-menu'><UserMenu/></div>
       <div className='dashbord-content'>
-      <div className='nav-cart-product'>
+      <div className='dashbord-order-product'>
           {orders?.map(item => (
-            <div className='nav-cart-product-card' key={item?._id}>
-              <div className='nav-cart-product-card-left'>
-                <Link to={`/product/${item?.product?._id}`}><img className='nav-cart-product-image' src={item?.product?.image} alt="" /></Link>
-                <div className='nav-cart-product-text'>
-                  <div className='nav-cart-product-title'>{item?.product?.title.slice(0,25)}...</div>
-                  <div className='nav-cart-product-price'><strong>Price:- </strong>₹ {item?.price}/-</div>
+            <div className='dashbord-order-product-card' key={item?._id}>
+              <div className='dashbord-order-product-card-left'>
+                <Link to={`/product/${item?.product?._id}`}><img className='dashbord-order-product-image' src={item?.product?.image} alt="" /></Link>
+                <div className='dashbord-order-product-text'>
+                  <div className='dashbord-order-product-title'>{item?.product?.title.slice(0,25)}...</div>
+                  <div className='dashbord-order-product-price'><strong>Price:- </strong>₹ {item?.price}/-</div>
+                  <div className='dashbord-order-product-payment'><strong>Payment:- </strong>{item?.payment}</div>
                   <div className='order-product-status'><strong>Status:- </strong>
                   {item?.status.slice(0,6) === "Cancle" ? <div className='order-product-status-icon-cancle'><IoMdCheckmarkCircle/> </div> : <div className='order-product-status-icon'><IoShieldCheckmarkSharp/> </div> }
                    {item?.status}</div>
-                  <div className='nav-cart-product-price'><strong>Payment:- </strong>{item?.payment}</div>
                 </div>
               </div>
-              <button onClick={()=> {showModal(); setOrderid(item?._id)}} className='nav-cart-product-remove' >Cancle</button>
+              <button onClick={()=> {showModal(); setOrderid(item?._id)}} className='dashbord-order-product-remove' >Cancle</button>
             </div>
           ))}
         </div>
@@ -90,6 +92,14 @@ const UserOrder = () => {
         </select>
       </Modal>
     </div>
+    </> : <>
+      <div className='dashbord-order-not-card'>
+        <img className='dashbord-order-not-card-img' src={Orderimage} alt="logo" />
+        <div className='dashbord-order-not-card-title'>You Have No Ordered Item</div>
+        <Link to='/' style={{marginTop: "20px"}} className='mid-button-p'>Contine Shoping</Link>
+      </div>
+    </>}
+    
   </>
   )
 }

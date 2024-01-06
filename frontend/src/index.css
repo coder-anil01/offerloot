@@ -12,12 +12,27 @@
   font-size: 18px;
   font-weight: 600;
 }
+.mid-button-p{
+  color: black;
+  background-color: yellowgreen;
+  padding: 8px 20px;
+  height: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 3px 1px #1c1c1c39;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+
 
 /* NAVBAR */
 .navbar{
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 99;
   width: 100vw;
   height: 60px;
   display: flex;
@@ -28,6 +43,9 @@
   display: flex;
   align-items: center;
   margin-left: 50px;
+}
+.res-icon-nav{
+  display: none;
 }
 .navbarlogo{
   width: 200px;
@@ -60,13 +78,23 @@
     width: 110px;
   }
   .navbar-items{
-    margin-right: 5px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    width: 100vw;
+    background-color: #979797;
+    padding: 5px 0;
+    justify-content: space-between;
   }
   .navbar-items a{
     margin: 0 5px;
-    padding: 5px 10px;
+    padding: 5px 20px;
   }
   .navbar-bottom-space{
     margin-top: 40px;
+  }
+  .res-icon-nav{
+    display: flex;
+    justify-content: space-between;
   }
 }

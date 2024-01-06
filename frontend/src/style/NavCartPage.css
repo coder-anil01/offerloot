@@ -3,10 +3,7 @@
     grid-template-columns: auto 300px;
     padding: 0 5vw;
     min-height: 90vh;
-}
-
-.nav-cart-left{
-    margin-right: 10px;
+    grid-gap: 10px;
 }
 .nav-cart-address{
     padding: 10px;
@@ -14,7 +11,6 @@
     background-color: antiquewhite;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
 }
 .nav-cart-address div{
@@ -29,9 +25,6 @@
     border-radius: 10px;
     box-shadow: 3px 3px 2px 1px rgba(28, 28, 28, 0.408);
     margin-right: 20px;
-}
-.nav-cart-product{
-    /* background-color: antiquewhite; */
 }
 
 .nav-cart-product-card{
@@ -64,26 +57,57 @@
 }
 .nav-cart-product-title{}
 .nav-cart-product-price{}
-.nav-cart-product-remove{
-    /* float: end; */
-}
 
-.nav-cart-right{
-    background-color: antiquewhite;
-    padding: 10px;
-    height: 300px;
-    margin: 10px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 .nav-cart-place-order{
     background-color: orange;
-    padding: 10px 0;
     text-decoration: none;
-    font-size: 18px;
     color: black;
     font-weight: 600;
     text-align: center;
-    margin: 0 40px 20px 40px;
+    font-size: 18px;
+    padding: 8px 30px;
+    float: right;
+    margin-top: 20px;
+}
+
+/* MOBILE */
+@media only screen and (max-width: 600px) {
+    .nav-cart{
+        display: flex;
+        flex-direction: column;
+        padding: 0 2vw;
+        width: 96vw;
+    }
+    .nav-cart-address{
+        padding: 10px;
+        margin: 10px 0;
+        display: flex;
+    }
+    .nav-cart-address div{
+        padding: 3px 0;
+    }
+    .nav-cart-product-remove,
+    .nav-cart-address-change{
+        margin-right: 0;
+        height: 40px;
+    }
+    .nav-cart-product-remove{
+        background-color: red !important;
+        cursor: pointer;
+        border: none;
+    }
+    .nav-cart-product-text{
+        padding: 0;
+    }
+    .nav-cart-product-text div{
+        padding: 5px 0;
+    }
+    .nav-cart-product-title{
+        font-size: 13px;
+    }
+    .nav-cart-product-price{}
+    .res-mob-buttom{
+        height: 60px;
+    }
+    
 }

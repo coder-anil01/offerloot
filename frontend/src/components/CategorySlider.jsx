@@ -14,7 +14,7 @@ const CategorySlider = () => {
         slidesToShow: 7,
         slidesToScroll: 2,
         initialSlide: 0,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 2000,
         responsive: [
           {
@@ -35,7 +35,7 @@ const CategorySlider = () => {
             breakpoint: 480,
             settings: {
               dots: false,
-              slidesToShow: 3,
+              slidesToShow: 4,
               slidesToScroll: 1,
             },
           },

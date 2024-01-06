@@ -16,7 +16,6 @@ import UserOrder from "./pages/user/UserOrder";
 import UserCart from "./pages/user/UserCart";
 import NavCartPage from "./pages/NavCartPage";
 import PaymentPage from "./pages/user/PaymentPage";
-import UserDashbord from "./pages/user/UserDashbord";
 import AdminRoutes from "./routes/AdminRoutes";
 import AdminDashbord from "./pages/admin/AdminDashbord";
 import AdminProfile from "./pages/admin/AdminProfile";
@@ -45,11 +44,10 @@ function App() {
         <Route path='/forgot-password' element={<ForgetPassword/>}/>
         <Route path='/category/:id' element={<CategoryProduct/>}/>
         <Route path='/product/:id' element={<ProductDetails/>}/>
-        <Route path="buy/:id" element={<PaymentBuy/>}/>
+        <Route path="/buy/:id" element={<PaymentBuy/>}/>
         
 {/* USER */}
         <Route path="/dashbord" element={<UserRoute/>}>
-        <Route path="" element={<UserDashbord/>}/>
         <Route path="profile" element={<UserProfile/>}/>
         <Route path="logout" element={<LogOut/>}/>
         <Route path="wishlist" element={<Wishlist/>}/>
@@ -69,9 +67,9 @@ function App() {
         <Route path="products" element={<Product/>}/>
         <Route path="logout" element={<Logout/>}/>
       </Route>
-
       </Routes>
     </Router>
+    <div className="res-mob-buttom"></div>
     </>
   );
 }

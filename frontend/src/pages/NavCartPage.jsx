@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { Link } from "react-router-dom";
 import { FaHome, FaUser,FaPhoneAlt } from "react-icons/fa";
 import SeoHelmet from '../components/SeoHelmet';
+import CartEmpty from '../components/CartEmpty';
 
 
 
@@ -55,15 +56,16 @@ const NavCartPage = () => {
   return (
     <>
     <SeoHelmet title={total > 0 ? `(${total}) Items In Your Cart`: "Cart Page Is Empty"} description="Welcome to your shopping cart - the place where your dreams and selections come together! Here, you'll find all the fantastic items you've chosen in one convenient spot"/>
-    <div className='nav-cart'>
+    { total > 0 ? <>
+      <div className='nav-cart'>
       <div className='nav-cart-left'>
         <div className='nav-cart-address'>
           <div>
-            <div><FaUser/> <strong>Buyer:-</strong> {auth?.user?.name}</div>
-            <div><FaPhoneAlt/> <strong>Phone:-</strong> {auth?.user?.phone}</div>
-            <div><FaHome/> <strong>Address:-</strong> {auth?.user?.address}</div>
+            <div><FaUser/> {auth?.user?.name}</div>
+            <div><FaPhoneAlt/> {auth?.user?.phone}</div>
+            <div><FaHome/> {auth?.user?.address}</div>
           </div>
-          <Link to='/dashbord/profile' className='nav-cart-address-change'>Change</Link>
+          <Link to='/dashbord/profile' className='mid-button-p'>Edit</Link>
         </div>
         <div className='nav-cart-product'>
           {products?.map(item => (
@@ -80,19 +82,29 @@ const NavCartPage = () => {
           ))}
         </div>
       </div>
-      <div className='nav-cart-right'>
-        <div>
-          <h2>Price Details</h2>
-          <h3>Total Price:- ₹ {totalPrice()}/-</h3>
+      <div style={{height: "240px"}} className='payment-buy-right'>
+        <div className='payment-buy-price-heading'>Payment-details</div>
+        <div className='payment-buy-line'/>
+        <div className='payment-buy-item'>
+          <div>{total} item</div>
+          <div>{totalPrice()}</div>
         </div>
-        {products.length > 0 ? <>
-          <Link to="/dashbord/payment" className='nav-cart-place-order'>Place Order</Link>
-          </> : <>
-          <Link to="/" className='nav-cart-place-order'>Continue Shopping</Link>
-          </>}
-        
+        <div className='payment-buy-item'>
+          <div>Delivery Charges</div>
+          <div className='payment-buy-delivery-free'>FREE</div>
+        </div>
+        <div className='payment-buy-line'/>
+        <div className='payment-buy-item-total-price'>
+          <div>Total Payable:- </div>
+          <div>₹{totalPrice()}</div>
+        </div>
+         <Link to="/dashbord/payment" className='nav-cart-place-order'>Place Order</Link>
       </div>
+
+        
     </div>
+    </> : <><CartEmpty title={"Your Cart Is Empty"}/></>}
+    
     </>
   )
 }
