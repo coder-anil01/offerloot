@@ -1,9 +1,9 @@
-import wishListModel from "../models/wishListModel.js";
+import wishlistModel from "../models/wishlistModel.js";
 
 export const createwishlist = async (req, res) => {
     try {
         const { user, product} = req.body;
-        const exist = await wishListModel.find({product, user})
+        const exist = await wishlistModel.find({product, user});
         if(exist.length > 0){
             return res.status(200).send({ exist, message:"Product exist In Wishlist"})
         }
@@ -25,7 +25,7 @@ export const createwishlist = async (req, res) => {
 export const userwishlist = async (req, res) => {
     try {
         const {id} = req.params;
-        const wishlist = await wishListModel.find({"user": id}).populate('product').select("-user").sort({ createdAt: -1})
+        const wishlist = await wishListModel.find({"user": id}).populate('product').select("-user").sort({ createdAt: -1});
         res.status(200).send({
             success: true,
             message: "Get All wishlist",

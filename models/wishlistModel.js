@@ -9,6 +9,6 @@ const wishlistSchema = mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "products",
     }
-})
+},{ timestamps: true });
 
 export default mongoose.model('wishlist', wishlistSchema)
