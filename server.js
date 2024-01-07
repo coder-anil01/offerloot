@@ -31,16 +31,10 @@ app.use('/api/v1/order', orderRoutes )
 app.use('/api/v1/wishlist', wishlistRoutes )
 app.use('/api/v1/cart', cartRoute )
 
-//rest api
-app.get('/', (req, res)=> {
-    res.send({
-        message: "Welcome on home page"
-    })
-})
 
 const PORT = process.env.PORT || 8080;
 
 //Listen
 app.listen(PORT, ()=> {
-    console.log(`Server Runing on ${process.env.DEV_MODE} mode on port ${PORT}`)
+    console.log(`Server Runing on on port ${PORT}`)
 })
